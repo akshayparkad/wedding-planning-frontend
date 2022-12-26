@@ -1,15 +1,18 @@
 import logo from "./logo.svg";
 import "./App.css";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Vendor from "./components/vendors/Vendor";
+import Home from "./components/home/Home";
 
 function App() {
   return (
-    <>
-  <h1> hi </h1>
-  <h2>inside branch krunal</h2>
-      <h3>from akshay</h3>
-      <h4> again krunal</h4>
-  </>);
-  
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />}></Route>
+        <Route path="/vendor" element={<Vendor />}></Route>
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
 export default App;
