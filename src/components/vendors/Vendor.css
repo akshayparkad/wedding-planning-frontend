@@ -1,0 +1,29 @@
+.main-ak-1
+{
+    background-color: aquamarine;
+   
+}
+.main-ak-2
+{
+    background-color:aqua
+    
+}
+
+.vendor-detail-ak-1
+{
+    display: flex;
+    height: 50px;
+    background-color:bisque;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgba(246, 197, 136, 0.985);
+    border-radius: 5px;
+}
+
+.btn-ak-1
+{
+    border: 1px solid black !important;
+    border-radius: 2px;
+    background-color: rgba(246, 197, 136, 0.985) !important;
+    color: black !important;
+}
