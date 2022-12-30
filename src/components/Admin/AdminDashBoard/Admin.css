@@ -1,0 +1,102 @@
+.admin-header-18{
+    display: flex;
+    color: whitesmoke;
+    background-color: rgb(187, 127, 187);
+    width: 100%;
+    height: 10%;
+    justify-content: center;
+    align-items: center;
+}
+
+.admin-section-18{
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.admin-section-left-18{
+    margin-top: 2%;
+    color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    flex: 50%;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    font-family: 'Trebuchet MS', sans-serif;;
+    box-shadow: .5px 0 0 #cc1860;
+}
+
+.admin-section-right-18{
+    margin-top: 2%;
+    color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    flex: 50%;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    font-family: 'Trebuchet MS', sans-serif;;
+    box-shadow: -.5px 0 0 #cc1860;
+    
+}
+
+.vendor-box-18{
+    display: flex;
+    font-weight: bold;
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: 4px;
+    background: #e67fa8;
+    border: 1px solid #cc1860;
+    padding: 5px;
+}
+
+.vendor-box-18 > div{
+    margin: 20px;
+}
+
+
+.user-box-18{
+    display: flex;
+    font-weight: bold;
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: 4px;
+    background: #e67fa8;
+    border: 1px solid #cc1860;
+    padding: 5px;
+}
+
+.user-box-18 > div{
+    margin: 20px;
+}
+
+
+
+/* buttons */
+
+.btn-18{
+    
+    text-decoration: none;
+    padding: 6px;
+    color: white;
+    font-weight: 400;
+    border-radius: 3px;
+    background:  #e74b89;
+    border: 1px solid  #cc1860;
+}
+
+.btn-18:hover{
+    transition: 0.7s;
+    transform: scale(1.1);
+}
+
+/* subheading */
+
+.subheading-18{
+    color: rgb(122, 119, 119);
+}
