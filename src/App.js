@@ -5,9 +5,11 @@ import Home from "./components/home/Home";
 import Admin from "./components/Admin/AdminDashBoard/Admin";
 import ServiceDetail from "./components/Service-detail/ServiceDetail";
 import VendorsList from "./components/VendorsList/VendorsList";
+
 import UserProfile from "./components/Profile/UserProfile";
 import UserProfileEdit from "./components/Profile/UserProfileEdit";
 import ChangePassword from "./components/Profile/ChangePassword";
+import { About } from "./components/About/About";
 
 
 function App() {
@@ -19,10 +21,10 @@ function App() {
         <Route path="/vendorsList" element={<VendorsList />}></Route>
         <Route path="/serviceDetail" element={<ServiceDetail />}></Route>
         <Route path="/userprofile" element={<UserProfile />}></Route>
+        <Route path="/about" element={<About />}></Route>
         <Route path="/admin" element={<Admin />}></Route>
         <Route path="/userprofileedit" element={<UserProfileEdit />}></Route>
         <Route path="/changepassword" element={<ChangePassword />}></Route>
-
       </Routes>
     </BrowserRouter>
   );
