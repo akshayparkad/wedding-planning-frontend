@@ -1,7 +1,11 @@
 import "./App.css";
+import "./components/home/Home.css"
+import "./components/home/footer/Footer.css"
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Vendor from "./components/vendors/Vendor";
-import Home from "./components/home/Home";
+import Home from "./components/home/Home
+import { Header } from "./components/home/header/Header";
+import { Footer } from "./components/home/footer/Footer";
 import Admin from "./components/Admin/AdminDashBoard/Admin";
 import ServiceDetail from "./components/Service-detail/ServiceDetail";
 import VendorsList from "./components/VendorsList/VendorsList";
@@ -15,6 +19,7 @@ import { About } from "./components/About/About";
 function App() {
   return (
     <BrowserRouter>
+      <Header></Header>
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/vendor" element={<Vendor />}></Route>
@@ -26,6 +31,7 @@ function App() {
         <Route path="/userprofileedit" element={<UserProfileEdit />}></Route>
         <Route path="/changepassword" element={<ChangePassword />}></Route>
       </Routes>
+      <Footer></Footer>
     </BrowserRouter>
   );
 }

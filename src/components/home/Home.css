@@ -1,0 +1,30 @@
+.WED {
+    padding-top: 2%;
+    height: 700px;
+    width: 100%;
+}
+
+.Venue {
+    padding-top: 2%;
+}
+
+._079 {
+    height: 70px;
+    color: white !important;
+    background-color: #e72e77 !important;
+
+}
+
+#collasible-nav-dropdown {
+    color: white;
+}
+
+.DIV {
+    /* background-color: rgb(248, 241, 244) !important; */
+}
+
+Card {
+
+    gap: 10 !important;
+
+}
