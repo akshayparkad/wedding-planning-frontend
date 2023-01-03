@@ -1,6 +1,18 @@
-.WED {
-    height: 700px;
+ /* .WED {
+   
     width: 100%;
+}  */
+
+.homeimage{
+    height: 700px;
+    
+    overflow: hidden;
+}
+
+.homeimage img{
+    width: 100%;
+    margin: 0px 0px -250px 0px;
+
 }
 
 .Venue {

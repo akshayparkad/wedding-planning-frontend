@@ -5,29 +5,11 @@ import CardGroup from 'react-bootstrap/CardGroup';
 export function Home(prop) {
   return (
     <div>
-      <Carousel>
-        <Carousel.Item interval={2000}>
-          <img
-            className="WED"
-            src="https://image.wedmegood.com/resized/1900X/uploads/city_bg_image/1/delhi_bg.jpeg"
-            alt="First slide"
-          />
-          <Carousel.Caption>
-          </Carousel.Caption>
-        </Carousel.Item>
-        <Carousel.Item interval={2000}>
-          <img
 
-            className="WED"
-            src="https://www.weddingsutra.com/images/wedding-images/blog-images/kashika-anish/kashika-anish-img1.webp"
-            alt="Second slide"
-          />
-          <Carousel.Caption>
+      <div className="d-flex justify-content-center homeimage">
+        <img src="https://image.wedmegood.com/resized/1900X/uploads/city_bg_image/1/delhi_bg.jpeg"/>
+      </div>
 
-          </Carousel.Caption>
-        </Carousel.Item>
-
-      </Carousel>
       <div className='container mb-4'>
         <h2 className="Venue"><i>Popular Venue</i></h2>
 
@@ -76,7 +58,7 @@ export function Home(prop) {
 
 
         <h2 className="Venue"><i>Popular Search</i></h2>
-        <CardGroup className="card">
+        <CardGroup>
           <div className='row'>
             <div className='col-4'>
 
