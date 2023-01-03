@@ -3,7 +3,7 @@ import "./components/home/Home.css"
 import "./components/home/footer/Footer.css"
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Vendor from "./components/vendors/Vendor";
-import Home from "./components/home/Home
+import Home from "./components/home/Home";
 import { Header } from "./components/home/header/Header";
 import { Footer } from "./components/home/footer/Footer";
 import Admin from "./components/Admin/AdminDashBoard/Admin";
