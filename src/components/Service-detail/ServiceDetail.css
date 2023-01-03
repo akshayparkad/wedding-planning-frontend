@@ -1,16 +1,56 @@
 .img-ak-1 {
-  width: 80%;
-  box-shadow: 0px 0px 20px #b4245d;
+  width: 100%;
+  height: 90%;
+  box-shadow: 0px 0px 10px #a86e85;
 }
 
-.price-ak-1 {
-  box-shadow: 0px 0px 2px black;
+.boxes-ak-1 {
+  box-shadow: 0px 0px 1px rgb(66, 66, 66);
   margin-top: 40px;
-  width: 90%;
+  width: 100%;
+  padding-left: 10px;
 }
 
 .border-ak-1 {
-  border-bottom: 1px solid rgb(67, 67, 67);
+  border-bottom: 1px solid rgb(173, 172, 172);
   padding-bottom: 5px;
   padding-top: 5px;
+}
+
+.color-ak-1 {
+  color: #e63f82;
+  padding-right: 40px;
+  font-weight: 500;
+}
+
+.btn-d-ak-2 {
+  border: 1px solid #e63f82;
+  border-radius: 15px;
+  background-color: #e63f82;
+  color: white;
+  margin-left: 20px;
+  width: 130px;
+  height: 40px;
+  box-shadow: 0px 0px 1px 1px #e63f82;
+  margin-left: 150px;
+}
+
+.detail-ak-1 {
+  box-shadow: 0px 0px 2px rgb(170, 170, 170);
+  margin-top: 40px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+}
+
+.boxes-ak-2 {
+  box-shadow: 0px 0px 2px rgb(170, 170, 170);
+}
+
+.img-ak-d-1 {
+  height: 300px;
+  width: 100%;
+  box-shadow: 0px 0px 2px black;
+  border-radius: 15px;
 }
