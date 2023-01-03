@@ -7,6 +7,7 @@ export class About extends Component {
   render() {
     return (
       <>
+      
     <div className="container">
             <div className="">
 
@@ -26,44 +27,42 @@ export class About extends Component {
             </Card.Body>
           </Card>
           </div>
+          <br></br>
         <div abt="text-dark m-2 p-3 bg-secondary" style={{ fontSize:20}}>
 
-          India's favourite wedding planning website & app with over 1.5 millon
-          monthly dedicated users. ​WedMeGood is​ a ​swanky alternative to the
+          India's favourite wedding planning website & app. ​MerryWedding is​ a ​swanky alternative to the
           outdated wedding planning process. A one-stop-shop for all things
           weddings, you can find inspiratio​​n​, ​ideas ​and vendors within​
-          your​ budget​. WedMeGood has been trusted by over 2​​ m​illio​n brides
-          & grooms​ all over the world​ to plan their big day.​ So sit back, log
-          on to WedMeGood, and ​plan the wedding of your dreams​!
-
+          your​ budget​. MerryWedding has been trusted by more brides
+          & grooms​ all over the India​ to plan their big day.​ So sit back, log
+          on to MerryWedding, and ​plan the wedding of your dreams​!
+          
           <h2>Make Planning decisions</h2>
 
           <h3>Vendors</h3>
-          From photographers to wedding priests, WedMeGood has 80,000+ active
+          From photographers to wedding priests, MerryWedding has most of active
           vendors for you to choose from. Browse their portfolio, prices,
           genuine client reviews & much more to do your research and book just
-          about any wedding vendor you might require
-        
-        
-          <h3>Genie</h3>
-          WMG Genie services can help you find the right vendor to fit your
-          budget & style! Our Genie expert saves you the time & hassle of
-          browsing through hundreds of profiles by suggesting only the most
-          relevant vendors for your specific requirements.
-        
-        <h3 >WedMeGood Mynt</h3>
+          about any wedding vendor you might require.
+          <br></br>
+          <br></br>
+         <h3>MerryWedding Bridal Gallery / Shop</h3> 
+          The MW Bridal Gallery is your one-stop wedding shop. Choose from 2000+ outfits and chat with the designer's team directly to find the outfit of your dreams. Kick-start your wedding shopping here from the comfort of your home!
+          <br></br>
+          <br></br>
+        <h3 >MerryWedding Mynt</h3>
         An exclusive loyalty program by WedMeGood for our brides-to-be and
         grooms-to-be, this allows access to special offers and benefits from
-        100+ premium brands across various categories like bridal wear, travel,
+      across various categories like bridal wear, travel,
         jewellery, beauty and more!
         </div>
 
     </div>
 
-        <div className="text-dark m-2 p-3 bg-secondary">
+        <div className="text-dark m-2 p-3 bg-secondary" style={{ fontSize:20}}>
           <h3>Our Vision </h3>
-          Wedding Planner (@WP) is an event planner came to existance back in
-          2021. @WP offers A-Z and 0-9 excellent event planning services from a
+          MerryWedding (@mw) is an event planner came to existance back in
+          2022. @MW offers A-Z and 0-9 excellent event planning services from a
           team of experienced, energetic & innovative event planners. We ensures
           that our clients, which are constantly growing, make regular use of
           our services.
@@ -73,7 +72,7 @@ export class About extends Component {
               ></img>
             </div>
             <div className="card" style={{ width: "27rem" ,height:"15rem" }}>
-            <img classNames="card-img-top" src="https://image.wedmegood.com/resized/1000X/uploads/member/17553/1489013700_1439530896_466804_331288800271919_1291804063_o.jpg" alt="Card image cap"
+            <img classNames="card-img-top" src="https://image.wedmegood.com/resized/1000X/uploads/member/3362407/1662537106_IMG_6126.JPG?crop=108,0,1067,600" alt="Card image cap"
               ></img>
             </div>
             <div className="card" style={{ width: "27rem" ,height:"100%" }}>
