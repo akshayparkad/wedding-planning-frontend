@@ -1,5 +1,4 @@
 .WED {
-    padding-top: 2%;
     height: 700px;
     width: 100%;
 }
@@ -19,12 +18,7 @@
     color: white;
 }
 
-.DIV {
-    /* background-color: rgb(248, 241, 244) !important; */
-}
-
 Card {
-
     gap: 10 !important;
 
 }

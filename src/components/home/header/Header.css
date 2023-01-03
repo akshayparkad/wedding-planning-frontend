@@ -1,0 +1,31 @@
+.header {
+  width: 100%;
+}
+.nav-link
+{
+  color: white !important;
+  font-size: 17px !important;
+  padding-left: 20px !important;
+}
+.navbar1 {
+  background-color: #e72e77;
+}
+
+.hover_line {
+  border-bottom: 1px solid transparent !important;
+  text-decoration: none;
+}
+
+.hover_line:hover {
+  border-bottom: 1px solid white!important;
+}
+
+.bg_drop:hover
+{
+  background-color: #f9b0cd !important;
+}
+
+
+
+
+

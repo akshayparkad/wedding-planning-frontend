@@ -4,7 +4,7 @@ import CardGroup from 'react-bootstrap/CardGroup';
 
 export function Home(prop) {
   return (
-    <div className='DIV'>
+    <div>
       <Carousel>
         <Carousel.Item interval={2000}>
           <img
@@ -13,10 +13,9 @@ export function Home(prop) {
             alt="First slide"
           />
           <Carousel.Caption>
-
           </Carousel.Caption>
         </Carousel.Item>
-        <Carousel.Item interval={500}>
+        <Carousel.Item interval={2000}>
           <img
 
             className="WED"
