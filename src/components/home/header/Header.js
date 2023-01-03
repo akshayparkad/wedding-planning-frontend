@@ -57,7 +57,7 @@ export function Header() {
               <Offcanvas show={show} onHide={handleClose}>
                 <Offcanvas.Header closeButton>
                   <Offcanvas.Title>
-                    <h1 className="font">Crafty-recipes</h1>
+                    <h1 className="font">MerryWedding</h1>
                     <hr></hr>
                   </Offcanvas.Title>
                 </Offcanvas.Header>
@@ -67,21 +67,23 @@ export function Header() {
                       <h5 className="font">
                         <b>Email Id:-</b>
                       </h5>
-                      <h6 className="font">Crft-recipe@gmail.com</h6>
+                      <h6 className="font">meet@merrywedding.com</h6>
                     </ListGroup.Item>
                     <ListGroup.Item>
                       <h5 className="font">
                         <b>Phone No:-</b>
                       </h5>
-                      <h6 className="font">+91-1110111011 </h6>
+                      <h6 className="font"> 0124-8812385</h6>
+                      <h6 className="font">+91-7218472847</h6>
                     </ListGroup.Item>
                     <ListGroup.Item>
                       <h5 className="font">
-                        <b>Owned By:-</b>
+                        <b>Address:-</b>
                       </h5>
-                      <h6 className="font">Krunal Sonani</h6>
-                      <h6 className="font">Pratiksha Barge</h6>
-                      <h6 className="font">Akshay Durgade</h6>
+                      <h6> Main Office, Raintree Marg, Sector 7, Cbd Belapur,
+                         Navi Mumbai - 400614 </h6>
+                      
+                      
                       <hr className="font"></hr>
                     </ListGroup.Item>
                   </ListGroup>
