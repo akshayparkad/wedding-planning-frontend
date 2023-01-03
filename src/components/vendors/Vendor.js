@@ -8,6 +8,7 @@ function Vendor() {
     <>
       <div className="row">
         <div className="col-7 main-ak-1 m-0">
+          <div className="text-center fs-5 text-dark">Service List</div>
           <div className="row vendor-detail-ak-1 gap-2 mx-3 my-2 ">
             <div className="col-2  ">Service code</div>
             <div className="col-1  ">Category</div>
@@ -36,6 +37,7 @@ function Vendor() {
           </div>
         </div>
         <div className="col-5 main-ak-2 ">
+        <div className="text-center fs-5 text-dark">Add Service</div>
           <form>
             <div className="row  my-4">
               <label
