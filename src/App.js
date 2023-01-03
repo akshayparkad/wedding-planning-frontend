@@ -14,6 +14,8 @@ import UserProfile from "./components/Profile/UserProfile";
 import UserProfileEdit from "./components/Profile/UserProfileEdit";
 import ChangePassword from "./components/Profile/ChangePassword";
 import { About } from "./components/About/About";
+import Login from "./components/login/Login";
+import { Signup } from "./components/signup/Signup";
 
 function App() {
   return (
@@ -29,6 +31,8 @@ function App() {
         <Route path="/admin" element={<Admin />}></Route>
         <Route path="/userprofileedit" element={<UserProfileEdit />}></Route>
         <Route path="/changepassword" element={<ChangePassword />}></Route>
+        <Route path="/signin" element={<Login />}></Route>
+        <Route path="/signup" element={<Signup />}></Route>
       </Routes>
       <Footer></Footer>
     </BrowserRouter>

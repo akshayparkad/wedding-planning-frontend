@@ -93,10 +93,10 @@ export function Header() {
             </Nav.Link>
           </Nav>
           <Nav>
-            <Nav.Link style={{ color: "white" }} href="#deets">
+            <Nav.Link style={{ color: "white" }} href="/signin">
               Sign In
             </Nav.Link>
-            <Nav.Link eventKey={2} style={{ color: "white" }} href="#memes">
+            <Nav.Link eventKey={2} style={{ color: "white" }} href="/signup">
               Sign Up
             </Nav.Link>
           </Nav>
