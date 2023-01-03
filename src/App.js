@@ -1,9 +1,9 @@
 import "./App.css";
-import "./components/home/Home.css"
-import "./components/home/footer/Footer.css"
+import "./components/home/Home.css";
+import "./components/home/footer/Footer.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Vendor from "./components/vendors/Vendor";
-import Home from "./components/home/Home
+import Home from "./components/home/Home";
 import { Header } from "./components/home/header/Header";
 import { Footer } from "./components/home/footer/Footer";
 import Admin from "./components/Admin/AdminDashBoard/Admin";
@@ -14,7 +14,6 @@ import UserProfile from "./components/Profile/UserProfile";
 import UserProfileEdit from "./components/Profile/UserProfileEdit";
 import ChangePassword from "./components/Profile/ChangePassword";
 import { About } from "./components/About/About";
-
 
 function App() {
   return (
