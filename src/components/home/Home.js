@@ -6,7 +6,7 @@ export function Home(prop) {
   return (
     <div className='DIV'>
       <Carousel>
-        <Carousel.Item interval={1000}>
+        <Carousel.Item interval={2000}>
           <img
             className="WED"
             src="https://image.wedmegood.com/resized/1900X/uploads/city_bg_image/1/delhi_bg.jpeg"
