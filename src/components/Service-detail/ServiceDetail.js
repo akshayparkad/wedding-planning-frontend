@@ -15,7 +15,7 @@ export default function ServiceDetail() {
             className="img-fluid img-ak-1"
           ></img>
         </div>
-        <div className="col-5 px-5 my-3">
+        <div className="col-5 px-5 ">
           <div className="boxes-ak-1">
             <div className="border-ak-1">
               <h5 className="text-secondary">Per Day Price Estimate</h5>
