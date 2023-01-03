@@ -18,7 +18,7 @@ function UserProfileEdit() {
                     <label for="confirmpassword">Confirm Password:</label><br />
                     <input type="password" id="password" name="confirmpassword" />
                     <br />
-                    <input type="submit" value="Update" />
+                    <input type="submit" id="update-18" value="Update" />
                 </form>
             </div>
             </div>

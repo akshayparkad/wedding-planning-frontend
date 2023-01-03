@@ -86,7 +86,7 @@ label {
   margin-bottom: 1px;
 }
 
-input[type="text"],
+/* input[type="text"],
 input[type="password"],
 input[type="email"] {
   width: 60%;
@@ -95,9 +95,18 @@ input[type="email"] {
   box-sizing: border-box;
   border: 1px solid #ccc;
   border-radius: 4px;
+} */
+
+#username, #password, #email, #confirmpassword, #oldpassword{
+  width: 60%;
+  padding: 12px 20px;
+  margin: 1px 0;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
-input[type="submit"] {
+#update-18{
   width: 60%;
   background-color: white;
   color: rgb(231, 46, 119);
@@ -108,7 +117,7 @@ input[type="submit"] {
   cursor: pointer;
 }
 
-input[type="submit"]:hover {
+#update-18:hover{
   background-color: rgb(231, 46, 119);
   color: white;
 }
