@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 export default function ServiceDetail() {
   return (
     <div className="container">
-      <div className="row my-0">
+      <div className="row mt-3">
         <div className="col-7 ">
           <img
             src="https://setmywed.com/blog/wp-content/uploads/2022/06/65f6ba3105d8fa0b320a0a58089bb4d7-1200x900.jpg"
