@@ -1,8 +1,28 @@
 .main-footer {
     color: white;
     background-color: #e72e77;
-    padding-top: 3em;
+    padding-top: 1em;
     position: relative;
     bottom: 0;
     width: 100%;
+}
+.Fb {
+    padding-top: 2%;
+    height: 15%;
+    width: 15%;
+}
+.In {
+    padding-top: 2%;
+    height: 11%;
+    width: 11%;
+}
+.Logo {
+   
+    height: 60%;
+    width: 60%;
+}
+.Disc {
+   
+    padding-top: 10%;
+   
 }
