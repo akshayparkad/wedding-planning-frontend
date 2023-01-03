@@ -75,7 +75,7 @@ export default function ServiceDetail() {
         <hr></hr>
         <div className=" h5 text-secondary ">About CamLens Photography - Wedding Photographers,Suburbs, Mumbai</div>
         <hr></hr>
-        <div className="fs-5 text-muted">CamLens Photography is a wedding photography and videography company situated in Ganesh Nagar, Mumbai. Photographs have a way of informing us what is special and what should always be treasured and cherished. So, if you are a soon-to-be married couple looking for a skilled photographer, your quest ends with CamLens Photography. It is the creation of Kamlesh Parmar, an excellent photographer who catches each minute to precision.</div>
+        <div className=" text-muted">CamLens Photography is a wedding photography and videography company situated in Ganesh Nagar, Mumbai. Photographs have a way of informing us what is special and what should always be treasured and cherished. So, if you are a soon-to-be married couple looking for a skilled photographer, your quest ends with CamLens Photography. It is the creation of Kamlesh Parmar, an excellent photographer who catches each minute to precision.</div>
       </div>
       <hr></hr>
     </div>

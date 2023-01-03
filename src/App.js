@@ -4,7 +4,6 @@ import "./components/home/footer/Footer.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Vendor from "./components/vendors/Vendor";
 import Home from "./components/home/Home";
-import { Header } from "./components/home/header/Header";
 import { Footer } from "./components/home/footer/Footer";
 import Admin from "./components/Admin/AdminDashBoard/Admin";
 import ServiceDetail from "./components/Service-detail/ServiceDetail";
@@ -16,11 +15,12 @@ import ChangePassword from "./components/Profile/ChangePassword";
 import { About } from "./components/About/About";
 import Login from "./components/login/Login";
 import { Signup } from "./components/signup/Signup";
+import { Header1 } from "./components/home/header/Header1";
 
 function App() {
   return (
     <BrowserRouter>
-      <Header></Header>
+      <Header1></Header1>
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/vendor" element={<Vendor />}></Route>
