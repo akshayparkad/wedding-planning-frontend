@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 export default function ServiceDetail() {
   return (
     <div className="container">
-      <div className="row my-0">
+      <div className="row mt-3">
         <div className="col-7 ">
           <img
             src="https://setmywed.com/blog/wp-content/uploads/2022/06/65f6ba3105d8fa0b320a0a58089bb4d7-1200x900.jpg"
@@ -75,7 +75,7 @@ export default function ServiceDetail() {
         <hr></hr>
         <div className=" h5 text-secondary ">About CamLens Photography - Wedding Photographers,Suburbs, Mumbai</div>
         <hr></hr>
-        <div className="fs-5 text-muted">CamLens Photography is a wedding photography and videography company situated in Ganesh Nagar, Mumbai. Photographs have a way of informing us what is special and what should always be treasured and cherished. So, if you are a soon-to-be married couple looking for a skilled photographer, your quest ends with CamLens Photography. It is the creation of Kamlesh Parmar, an excellent photographer who catches each minute to precision.</div>
+        <div className=" text-muted">CamLens Photography is a wedding photography and videography company situated in Ganesh Nagar, Mumbai. Photographs have a way of informing us what is special and what should always be treasured and cherished. So, if you are a soon-to-be married couple looking for a skilled photographer, your quest ends with CamLens Photography. It is the creation of Kamlesh Parmar, an excellent photographer who catches each minute to precision.</div>
       </div>
       <hr></hr>
     </div>

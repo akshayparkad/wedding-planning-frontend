@@ -1,0 +1,43 @@
+ .image-1
+{
+    height:78vh;
+    width:55rem;
+    box-shadow: 5px 5px 5px  black;
+    margin: 10px;
+    
+}
+.image-2
+{
+    height:20%;
+    width: auto;
+} 
+.top
+{
+    padding-top: 100px;
+    margin-bottom: 10px;
+}
+
+
+.font
+{
+    font-weight: 500;
+}
+
+#signbtn
+{
+    background-color:#c11967 !important;
+}
+.signup{
+    background: radial-gradient(rgb(245, 245, 220),white,rgb(245, 245, 220));
+
+
+}
+
+#username, #password, #email, #location, #confirmpassword, #password{
+    width: 60%;
+    padding: 12px 20px;
+    margin: 1px 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
