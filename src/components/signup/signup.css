@@ -23,7 +23,7 @@
     font-weight: 500;
 }
 
-.btn
+#signbtn
 {
     background-color:#c11967 !important;
 }
@@ -32,3 +32,12 @@
 
 
 }
+
+#username, #password, #email, #location, #confirmpassword, #password{
+    width: 60%;
+    padding: 12px 20px;
+    margin: 1px 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }

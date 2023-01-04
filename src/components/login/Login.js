@@ -1,10 +1,39 @@
-import React from "react";
+import React, { useState } from "react";
 import { Form } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 import "./login.css";
 
 const Login = () => {
-  const handleSubmit = () => {
-    console.log("submit");
+  const navigate = useNavigate();
+  const [data, setData] = useState({
+    userEmail: "",
+    userPassword: "",
+  });
+  const [error, setError] = useState({
+    errorEmail: "",
+    errorPassword: "",
+  });
+
+  const handleChange = (event) => {
+    setData({ ...data, [event.target.name]: event.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!data.userEmail) {
+      setError({ errorEmail: "Email is required" });
+      return;
+    } else {
+      setError({ errorEmail: "" });
+    }
+
+    if (!data.userPassword) {
+      setError({ errorPassword: "Password is required" });
+      return;
+    } else {
+      setError({ errorPassword: "" });
+    }
+    navigate("/");
   };
   return (
     <div className="container-fluid row login" id="body">
@@ -28,7 +57,7 @@ const Login = () => {
               <option value="2">Admin</option>
             </Form.Select>
           </div>
-          <div className="row my-4">
+          <div className="row mt-4">
             <label
               htmlFor="Email"
               className="col-4 d-flex justify-content-end font"
@@ -36,14 +65,20 @@ const Login = () => {
               Email
             </label>
             <input
+              name="userEmail"
               type="email"
               placeholder="Enter Your Email-Id"
-              name="Email"
               className="col-8"
+              onChange={handleChange}
             />
-            {/* <div className="col-3 text-danger">{error.errorEmail}</div> */}
           </div>
-          <div className="row my-4">
+          <div className="row" style={{ height: "10px" }}>
+            <span className="text-danger d-flex justify-content-center">
+              {error.errorEmail}
+            </span>
+          </div>
+
+          <div className="row mt-4">
             <label
               htmlFor="pass"
               className="col-4 d-flex justify-content-end font"
@@ -51,15 +86,26 @@ const Login = () => {
               Password
             </label>
             <input
+              name="userPassword"
               type="password"
-              name="Password"
               placeholder="Enter Your Password"
               className="col-8"
+              onChange={handleChange}
             />
-            {/* <div className="col-3 text-danger">{error.errorPassword}</div> */}
           </div>
-          <div className="my-4 d-flex justify-content-center">
-            <button type="submit" className="btn btn-success ">
+          <div className="row" style={{ height: "10px" }}>
+            <span className="text-danger d-flex justify-content-center">
+              {error.errorPassword}
+            </span>
+          </div>
+
+          <div className="row my-4 d-flex justify-content-center">
+            <button
+              type="submit"
+              style={{ width: "30%" }}
+              className="btn btn-success "
+              id="loginbtn"
+            >
               Login
             </button>
           </div>
