@@ -13,43 +13,58 @@ export function Footer() {
         <div className="row">
           {/* Column1 */}
           <div className="col">
-            <h4>THICC MEMES INC</h4>
+            <div>
+            <img
+            className="Logo"
+            src="https://i.pinimg.com/736x/c6/53/68/c653681df99073ace9deba0d8340d1b6.jpg"
+            alt="First slide"
+          />
+
+            </div>
             <h1 className="list-unstyled">
-              <li>342-420-6969</li>
-              <li>Moscow, Russia</li>
-              <li>123 Streeet South North</li>
+              <li></li>
+              <li></li>
+              <li></li>
             </h1>
           </div>
           {/* Column2 */}
           <div className="col">
-            <h4>Stuff</h4>
+            <h4><i>Quik Links</i></h4>
             <ui className="list-unstyled">
-              <li>DANK MEMES</li>
-              <li>OTHER STUFF</li>
-              <li>GUD STUFF</li>
+              <li>Home</li>
+              <li>Venues</li>
+              <li>Vender</li>
+              <li>Contact Us</li>
+              <li>About</li>
+            </ui>
+          </div>
+          <div className="col">
+            <h4><i>Favourites</i></h4>
+            <ui className="list-unstyled">
+              <li>Photographer</li>
+              <li>Bridal Wear</li>
+              <li>Make Up</li>
+              <li>Groom Wear</li>
+              <li>Catering</li>
+              <li>Planning And Decoration</li>
             </ui>
           </div>
           {/* Column3 */}
-          <div className="col">
-            <h4>WELL ANOTHER COLUMN</h4>
-            <ui className="list-unstyled">
-              <li>DANK MEMES</li>
-              <li>OTHER STUFF</li>
-              <li>GUD STUFF</li>
-            </ui>
+          <div className="col"> 
+          
+            <h5>"Love Is When You Care More About The Happiness Of Other Person Than Your Own"</h5>
           </div>
         </div>
         <hr />
         <div className="row">
           <p className="col-sm">
-            &copy;{new Date().getFullYear()} THICC MEMES | All rights reserved |
-            Terms Of Service | Privacy
+            &copy;{new Date().getFullYear()} MerryWeddings 
           </p>
         </div>
       </div>
     </div>
   );
-}
+} 
 export default Footer;
 
 
