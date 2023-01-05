@@ -45,11 +45,11 @@ const Login = () => {
         />
       </div>
       <div
-        className="col-5 d-flex justify-content-center"
-        style={{ alignItems: "center" }}
+        className="col-5"
+        // style={{ alignItems: "center" }}
       >
         <form onSubmit={handleSubmit}>
-          <div className="col-5 row my-4 d-flex justify-content-end font m-auto">
+          <div className="col-4 row my-4 d-flex justify-content-end font m-auto">
             <Form.Select aria-label="Default select example">
               <option>Login As</option>
               <option value="1">User</option>
@@ -60,7 +60,7 @@ const Login = () => {
           <div className="row mt-4">
             <label
               htmlFor="Email"
-              className="col-4 d-flex justify-content-end font"
+              className="col-4 d-flex justify-content-end font align-items-center"
             >
               Email
             </label>
@@ -68,7 +68,7 @@ const Login = () => {
               name="userEmail"
               type="email"
               placeholder="Enter Your Email-Id"
-              className="col-8"
+              className="col-7 input-mod-1"
               onChange={handleChange}
             />
           </div>
@@ -81,7 +81,7 @@ const Login = () => {
           <div className="row mt-4">
             <label
               htmlFor="pass"
-              className="col-4 d-flex justify-content-end font"
+              className="col-4 d-flex justify-content-end font align-items-center"
             >
               Password
             </label>
@@ -89,7 +89,7 @@ const Login = () => {
               name="userPassword"
               type="password"
               placeholder="Enter Your Password"
-              className="col-8"
+              className="col-7 input-mod-1"
               onChange={handleChange}
             />
           </div>
