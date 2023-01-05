@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { Form } from "react-bootstrap";
 
 export function Signup() {
-  const [data, setData] = useState({
+  let [data, setData] = useState({
     userName: "",
     userEmail: "",
     location: "",
@@ -15,7 +15,7 @@ export function Signup() {
     confirmPassword: "",
   });
   const navigate = useNavigate();
-  const [error, setError] = useState({
+  let [error, setError] = useState({
     errorName: "",
     errorEmail: "",
     errorLocation: "",
@@ -121,7 +121,7 @@ export function Signup() {
             <div className="row mt-4">
               <label
                 htmlFor="userName"
-                className="col-4 d-flex justify-content-end font"
+                className="col-4 d-flex justify-content-end font align-items-center"
               >
                 Name
               </label>
@@ -129,7 +129,7 @@ export function Signup() {
                 name="userName"
                 type="text"
                 placeholder="Enter Your Name"
-                className="col-5"
+                className="col-7 input-mod-1"
                 onChange={handleChange}
               />
             </div>
@@ -141,7 +141,7 @@ export function Signup() {
             <div className="row mt-4">
               <label
                 htmlFor="Email"
-                className="col-4 d-flex justify-content-end font"
+                className="col-4 d-flex justify-content-end font align-items-center"
               >
                 Email-Id
               </label>
@@ -150,7 +150,7 @@ export function Signup() {
                 type="email"
                 placeholder="Enter Your Email-Id"
                 onChange={handleChange}
-                className="col-5"
+                className="col-7  input-mod-1"
               />
             </div>
             <div className="row" style={{ height: "10px" }}>
@@ -162,7 +162,7 @@ export function Signup() {
             <div className="row mt-4">
               <label
                 htmlFor="DOB"
-                className="col-4 d-flex justify-content-end font"
+                className="col-4 d-flex justify-content-end font align-items-center"
               >
                 Location
               </label>
@@ -171,7 +171,7 @@ export function Signup() {
                 type="text"
                 placeholder="Enter Your Location"
                 onChange={handleChange}
-                className="col-5"
+                className="col-7  input-mod-1"
               />
             </div>
             <div className="row" style={{ height: "10px" }}>
@@ -183,7 +183,7 @@ export function Signup() {
             <div className="row mt-4">
               <label
                 htmlFor="pass"
-                className="col-4 d-flex justify-content-end font"
+                className="col-4 d-flex justify-content-end font align-items-center"
               >
                 Password
               </label>
@@ -192,7 +192,7 @@ export function Signup() {
                 type="password"
                 placeholder="Enter Your Password"
                 onChange={handleChange}
-                className="col-5"
+                className="col-7  input-mod-1"
               />
             </div>
             <div className="row" style={{ height: "10px" }}>
@@ -204,7 +204,7 @@ export function Signup() {
             <div className="row mt-4">
               <label
                 htmlFor="repass"
-                className="col-4 d-flex justify-content-end font"
+                className="col-4 d-flex justify-content-end font align-items-center"
               >
                 Confirm Password
               </label>
@@ -213,7 +213,7 @@ export function Signup() {
                 type="password"
                 placeholder="Confirm your password"
                 onChange={handleChange}
-                className="col-5"
+                className="col-7 input-mod-1"
               />
             </div>
             <div className="row" style={{ height: "10px" }}>
