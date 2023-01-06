@@ -1,3 +1,24 @@
-.login{
-  background: radial-gradient(rgb(245, 245, 220),white,rgb(245, 245, 220));
+.login {
+  background: radial-gradient(rgb(245, 245, 220), white, rgb(245, 245, 220));
+}
+#loginbtn {
+  background-color: #c11967 !important;
+}
+
+#email,
+#password {
+  width: 60%;
+  padding: 12px 20px;
+  margin: 1px 0;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.input-mod-1 {
+  padding: 12px 20px !important;
+  margin: 1px 0 !important;
+  box-sizing: border-box !important;
+  border: 1px solid #ccc !important;
+  border-radius: 4px !important;
 }

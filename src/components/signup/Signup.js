@@ -38,31 +38,47 @@ export function Signup() {
       /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
 
     // validation
-    if (!data.userName.match(nameregx)) {
+    if (!data.userName) {
+      setError({ errorName: "Name is required" });
+      return;
+    } else if (!data.userName.match(nameregx)) {
       setError({ errorName: "Invalid name" });
       return;
     } else {
       setError({ errorName: "" });
     }
 
-    if (!data.userEmail.match(emailregx)) {
+    if (!data.userEmail) {
+      setError({ errorEmail: "Email is required" });
+      return;
+    } else if (!data.userEmail.match(emailregx)) {
       setError({ errorEmail: "Invalid email" });
       return;
     } else {
       setError({ errorEmail: "" });
     }
 
-    if (!data.userPassword.match(Passwordregx)) {
+    if (!data.location) {
+      setError({ errorLocation: "Location is required" });
+      return;
+    }
+
+    if (!data.userPassword) {
+      setError({ errorPassword: "Password is required" });
+      return;
+    } else if (!data.userPassword.match(Passwordregx)) {
       setError({
-        errorPassword:
-          "Password must have one capital letter, number and special character. e.g. Abcde@123",
+        errorPassword: "Password must be like Abcde@123",
       });
       return;
     } else {
       setError({ errorPassword: "" });
     }
 
-    if (data.userPassword !== data.confirmPassword) {
+    if (!data.confirmPassword) {
+      setError({ errorRePassword: "Confirm password is required" });
+      return;
+    } else if (data.userPassword !== data.confirmPassword) {
       setError({
         errorRePassword: "Password does not match",
       });
@@ -75,7 +91,7 @@ export function Signup() {
   };
 
   return (
-    <div className="container-fluid row signup py-4" id="body">
+    <div className="container-fluid row signup py-4" id="signbody">
       <div className="col-7 p-0">
         <img
           src="https://image.wedmegood.com/resized/1900X/uploads/city_bg_image/1/delhi_bg.jpeg"
@@ -102,10 +118,10 @@ export function Signup() {
                 <option value="2">Vendor</option>
               </Form.Select>
             </div>
-            <div className="row my-4">
+            <div className="row mt-4">
               <label
-                htmlFor="name"
-                className="col-4 d-flex justify-content-end font"
+                htmlFor="userName"
+                className="col-4 d-flex justify-content-end font align-items-center"
               >
                 Name
               </label>
@@ -113,18 +129,19 @@ export function Signup() {
                 name="userName"
                 type="text"
                 placeholder="Enter Your Name"
-                className="col-5"
+                className="col-7 input-mod-1"
                 onChange={handleChange}
-                required
               />
+            </div>
+            <div className="row" style={{ height: "10px" }}>
               <span className="text-danger d-flex justify-content-center">
                 {error.errorName}
               </span>
             </div>
-            <div className="row my-4">
+            <div className="row mt-4">
               <label
                 htmlFor="Email"
-                className="col-4 d-flex justify-content-end font"
+                className="col-4 d-flex justify-content-end font align-items-center"
               >
                 Email-Id
               </label>
@@ -133,18 +150,19 @@ export function Signup() {
                 type="email"
                 placeholder="Enter Your Email-Id"
                 onChange={handleChange}
-                className="col-5"
-                required
+                className="col-7  input-mod-1"
               />
-              <span className="text-danger  d-flex justify-content-center">
+            </div>
+            <div className="row" style={{ height: "10px" }}>
+              <span className="text-danger d-flex justify-content-center">
                 {error.errorEmail}
               </span>
             </div>
 
-            <div className="row my-4">
+            <div className="row mt-4">
               <label
                 htmlFor="DOB"
-                className="col-4 d-flex justify-content-end font"
+                className="col-4 d-flex justify-content-end font align-items-center"
               >
                 Location
               </label>
@@ -153,15 +171,19 @@ export function Signup() {
                 type="text"
                 placeholder="Enter Your Location"
                 onChange={handleChange}
-                className="col-5"
-                required
+                className="col-7  input-mod-1"
               />
             </div>
+            <div className="row" style={{ height: "10px" }}>
+              <span className="text-danger d-flex justify-content-center">
+                {error.errorLocation}
+              </span>
+            </div>
 
-            <div className="row my-4">
+            <div className="row mt-4">
               <label
                 htmlFor="pass"
-                className="col-4 d-flex justify-content-end font"
+                className="col-4 d-flex justify-content-end font align-items-center"
               >
                 Password
               </label>
@@ -170,17 +192,19 @@ export function Signup() {
                 type="password"
                 placeholder="Enter Your Password"
                 onChange={handleChange}
-                className="col-5"
-                required
+                className="col-7  input-mod-1"
               />
-              <span className=" text-danger  d-flex justify-content-center">
+            </div>
+            <div className="row" style={{ height: "10px" }}>
+              <span className="text-danger d-flex justify-content-center">
                 {error.errorPassword}
               </span>
             </div>
-            <div className="row my-4">
+
+            <div className="row mt-4">
               <label
                 htmlFor="repass"
-                className="col-4 d-flex justify-content-end font"
+                className="col-4 d-flex justify-content-end font align-items-center"
               >
                 Confirm Password
               </label>
@@ -189,10 +213,11 @@ export function Signup() {
                 type="password"
                 placeholder="Confirm your password"
                 onChange={handleChange}
-                className="col-5"
-                required
+                className="col-7 input-mod-1"
               />
-              <span className="text-danger  d-flex justify-content-center">
+            </div>
+            <div className="row" style={{ height: "10px" }}>
+              <span className="text-danger d-flex justify-content-center">
                 {error.errorRePassword}
               </span>
             </div>
@@ -200,6 +225,7 @@ export function Signup() {
               <button
                 type="submit"
                 style={{ width: "30%" }}
+                id="signbtn"
                 className="btn btn-success "
               >
                 {" "}

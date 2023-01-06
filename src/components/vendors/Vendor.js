@@ -37,7 +37,7 @@ function Vendor() {
           </div>
         </div>
         <div className="col-5 main-ak-2 ">
-        <div className="text-center fs-5 text-dark">Add Service</div>
+          <div className="text-center fs-5 text-dark">Add Service</div>
           <form>
             <div className="row  my-4">
               <label
@@ -110,7 +110,7 @@ function Vendor() {
             <div className="row my-4">
               <label
                 htmlFor="category"
-                className="col-4 d-flex justify-content-end font align-items-center"
+                className="col-4 d-flex justify-content-end  align-items-center"
               >
                 Category:
               </label>
@@ -184,6 +184,20 @@ function Vendor() {
                 type="text"
                 placeholder="Enter Image 3"
                 name="image3"
+                className="col-5 form-ak-1 align-items-center"
+              />
+            </div>
+            <div className="row my-4">
+              <label
+                htmlFor="image3"
+                className="col-4 d-flex justify-content-end align-items-center"
+              >
+                Image 3:
+              </label>
+              <input
+                type="text"
+                placeholder="Enter Image 4"
+                name="image4"
                 className="col-5 form-ak-1 align-items-center"
               />
             </div>
