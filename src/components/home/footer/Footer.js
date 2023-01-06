@@ -1,7 +1,6 @@
 
 import React from "react";
 import "./Footer.css";
-// import './Cookingfinal.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.js';
 import {Link} from 'react-router-dom';
