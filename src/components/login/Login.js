@@ -1,40 +1,37 @@
 import React, { useState } from "react";
 import { Form } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import { getUserData } from "../../Service/login";
 import "./login.css";
 
 const Login = () => {
-  const navigate = useNavigate();
-  const [data, setData] = useState({
-    userEmail: "",
-    userPassword: "",
-  });
-  const [error, setError] = useState({
-    errorEmail: "",
-    errorPassword: "",
-  });
+  var navigate = useNavigate();
+  var [errorEmail, setEmail] = useState("");
+  var [errorPassword, setPassword] = useState("");
 
-  const handleChange = (event) => {
+  let [data, setData] = useState();
+
+  var handleChange = (event) => {
     setData({ ...data, [event.target.name]: event.target.value });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (!data.userEmail) {
-      setError({ errorEmail: "Email is required" });
-      return;
+  var handleSubmit = async (event) => {
+    console.log(event);
+    event.preventDefault();
+    var response = await getUserData(data.email, data.type);
+    console.log(response);
+    if (response.data.length == 0) {
+      setEmail("*user doesn't found");
     } else {
-      setError({ errorEmail: "" });
+      setEmail("");
+      if (response.data.password === data.password) {
+        navigate("/");
+      } else {
+        setPassword("*incorrect password");
+      }
     }
-
-    if (!data.userPassword) {
-      setError({ errorPassword: "Password is required" });
-      return;
-    } else {
-      setError({ errorPassword: "" });
-    }
-    navigate("/");
   };
+
   return (
     <div className="container-fluid row login" id="body">
       <div className="col-7 px-0">
@@ -50,22 +47,26 @@ const Login = () => {
       >
         <form onSubmit={handleSubmit}>
           <div className="col-4 row my-4 d-flex justify-content-end font m-auto">
-            <Form.Select aria-label="Default select example">
+            <Form.Select
+              aria-label="Default select example"
+              name="type"
+              onChange={handleChange}
+            >
               <option>Login As</option>
-              <option value="1">User</option>
-              <option value="2">Vendor</option>
-              <option value="2">Admin</option>
+              <option value="user">User</option>
+              <option value="vendor">Vendor</option>
+              <option value="admin">Admin</option>
             </Form.Select>
           </div>
           <div className="row mt-4">
             <label
-              htmlFor="Email"
+              htmlFor="email"
               className="col-4 d-flex justify-content-end font align-items-center"
             >
               Email
             </label>
             <input
-              name="userEmail"
+              name="email"
               type="email"
               placeholder="Enter Your Email-Id"
               className="col-7 input-mod-1"
@@ -74,19 +75,19 @@ const Login = () => {
           </div>
           <div className="row" style={{ height: "10px" }}>
             <span className="text-danger d-flex justify-content-center">
-              {error.errorEmail}
+              {errorEmail}
             </span>
           </div>
 
           <div className="row mt-4">
             <label
-              htmlFor="pass"
+              htmlFor="password"
               className="col-4 d-flex justify-content-end font align-items-center"
             >
               Password
             </label>
             <input
-              name="userPassword"
+              name="password"
               type="password"
               placeholder="Enter Your Password"
               className="col-7 input-mod-1"
@@ -95,7 +96,7 @@ const Login = () => {
           </div>
           <div className="row" style={{ height: "10px" }}>
             <span className="text-danger d-flex justify-content-center">
-              {error.errorPassword}
+              {errorPassword}
             </span>
           </div>
 

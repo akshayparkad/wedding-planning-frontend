@@ -5,14 +5,16 @@ import { useState } from "react";
 
 import { useNavigate } from "react-router-dom";
 import { Form } from "react-bootstrap";
+import { userData } from "../../Service/User";
 
 export function Signup() {
   let [data, setData] = useState({
-    userName: "",
-    userEmail: "",
+    username: "",
+    email: "",
     location: "",
-    userPassword: "",
+    password: "",
     confirmPassword: "",
+    type: "",
   });
   const navigate = useNavigate();
   let [error, setError] = useState({
@@ -29,65 +31,70 @@ export function Signup() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log("data: ", data);
+    if (validate()) {
+      var response = await userData(data);
+      console.log(response.data);
+      navigate("/signin");
+    }
+  };
 
-    // regex
+  var validate = () => {
+    error = {};
     const nameregx = /^([a-z]+(-| )?)+$/i;
     const emailregx = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     const Passwordregx =
       /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
 
     // validation
-    if (!data.userName) {
+    if (!data.username) {
       setError({ errorName: "Name is required" });
-      return;
-    } else if (!data.userName.match(nameregx)) {
+      return false;
+    } else if (!data.username.match(nameregx)) {
       setError({ errorName: "Invalid name" });
-      return;
+      return false;
     } else {
       setError({ errorName: "" });
     }
 
-    if (!data.userEmail) {
+    if (!data.email) {
       setError({ errorEmail: "Email is required" });
-      return;
-    } else if (!data.userEmail.match(emailregx)) {
+      return false;
+    } else if (!data.email.match(emailregx)) {
       setError({ errorEmail: "Invalid email" });
-      return;
+      return false;
     } else {
       setError({ errorEmail: "" });
     }
 
     if (!data.location) {
       setError({ errorLocation: "Location is required" });
-      return;
+      return false;
     }
 
-    if (!data.userPassword) {
+    if (!data.password) {
       setError({ errorPassword: "Password is required" });
-      return;
-    } else if (!data.userPassword.match(Passwordregx)) {
+      return false;
+    } else if (!data.password.match(Passwordregx)) {
       setError({
         errorPassword: "Password must be like Abcde@123",
       });
-      return;
+      return false;
     } else {
       setError({ errorPassword: "" });
     }
 
     if (!data.confirmPassword) {
       setError({ errorRePassword: "Confirm password is required" });
-      return;
-    } else if (data.userPassword !== data.confirmPassword) {
+      return false;
+    } else if (data.password !== data.confirmPassword) {
       setError({
         errorRePassword: "Password does not match",
       });
-      return;
+      return false;
     } else {
       setError({ errorRePassword: "" });
+      return true;
     }
-
-    navigate("/");
   };
 
   return (
@@ -112,21 +119,25 @@ export function Signup() {
         <div>
           <form onSubmit={handleSubmit}>
             <div className="col-4 row my-4 d-flex justify-content-end font m-auto">
-              <Form.Select aria-label="Default select example">
+              <Form.Select
+                aria-label="Default select example"
+                name="type"
+                onChange={handleChange}
+              >
                 <option>Register As</option>
-                <option value="1">User</option>
-                <option value="2">Vendor</option>
+                <option value="user">User</option>
+                <option value="vendor">Vendor</option>
               </Form.Select>
             </div>
             <div className="row mt-4">
               <label
-                htmlFor="userName"
+                htmlFor="username"
                 className="col-4 d-flex justify-content-end font align-items-center"
               >
                 Name
               </label>
               <input
-                name="userName"
+                name="username"
                 type="text"
                 placeholder="Enter Your Name"
                 className="col-7 input-mod-1"
@@ -140,13 +151,13 @@ export function Signup() {
             </div>
             <div className="row mt-4">
               <label
-                htmlFor="Email"
+                htmlFor="email"
                 className="col-4 d-flex justify-content-end font align-items-center"
               >
                 Email-Id
               </label>
               <input
-                name="userEmail"
+                name="email"
                 type="email"
                 placeholder="Enter Your Email-Id"
                 onChange={handleChange}
@@ -161,7 +172,7 @@ export function Signup() {
 
             <div className="row mt-4">
               <label
-                htmlFor="DOB"
+                htmlFor="location"
                 className="col-4 d-flex justify-content-end font align-items-center"
               >
                 Location
@@ -182,13 +193,13 @@ export function Signup() {
 
             <div className="row mt-4">
               <label
-                htmlFor="pass"
+                htmlFor="password"
                 className="col-4 d-flex justify-content-end font align-items-center"
               >
                 Password
               </label>
               <input
-                name="userPassword"
+                name="password"
                 type="password"
                 placeholder="Enter Your Password"
                 onChange={handleChange}
