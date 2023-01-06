@@ -91,7 +91,7 @@ export function Signup() {
   };
 
   return (
-    <div className="container-fluid row signup py-4" id="signbody">
+    <div className="container-fluid row signup" id="signbody">
       <div className="col-7 p-0">
         <img
           src="https://image.wedmegood.com/resized/1900X/uploads/city_bg_image/1/delhi_bg.jpeg"
@@ -99,7 +99,7 @@ export function Signup() {
           className="img-fluid image-1"
         />
       </div>
-      <div className="col-5">
+      <div className="col-4">
         <div className="d-flex justify-content-center">
           <img
             src="Wedlogo.png"
@@ -224,9 +224,9 @@ export function Signup() {
             <div className="row my-4 d-flex justify-content-center">
               <button
                 type="submit"
-                style={{ width: "30%" }}
+                style={{ width: "30%", color: "white", marginLeft: "145px"}}
                 id="signbtn"
-                className="btn btn-success "
+                className="btn "
               >
                 {" "}
                 Register
