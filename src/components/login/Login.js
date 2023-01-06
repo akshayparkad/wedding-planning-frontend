@@ -39,19 +39,20 @@ const Login = () => {
           src="https://images.unsplash.com/photo-1587271636175-90d58cdad458?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
           alt="login"
           className="img-fluid image-1"
-        />
+/>
       </div>
-      <div
-        className="col-5"
-        // style={{ alignItems: "center" }}
-      >
+      <div className="col-4 mt-5" >
         <form onSubmit={handleSubmit}>
-          <div className="col-4 row my-4 d-flex justify-content-end font m-auto">
+
+
+          <div className="col-4 row my-5 d-flex justify-content-end font m-auto">
             <Form.Select
               aria-label="Default select example"
               name="type"
               onChange={handleChange}
+              className="input-mod-1"
             >
+
               <option>Login As</option>
               <option value="user">User</option>
               <option value="vendor">Vendor</option>
@@ -100,14 +101,14 @@ const Login = () => {
             </span>
           </div>
 
-          <div className="row my-4 d-flex justify-content-center">
+          <div className="my-4 d-flex justify-content-center ">
             <button
               type="submit"
-              style={{ width: "30%" }}
-              className="btn btn-success "
+              style={{ width: "30%", marginLeft:"135px", color: "white" }}
+              className="btn"
               id="loginbtn"
             >
-              Login
+              Sign In
             </button>
           </div>
         </form>

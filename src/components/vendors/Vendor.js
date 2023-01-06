@@ -1,9 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.js";
 import "./Vendor.css";
+import { postWedServiceDetails } from "../API/Services";
 
 function Vendor() {
+  const[sdata, setSdata] = useState();
+
+  console.log(sdata);
+
+  const postServiceData = async () =>{
+
+     
+    const response = await postWedServiceDetails(sdata);
+    console.log(response);
+  }
+
+  const handleChange = (event) => {
+    setSdata({ ...sdata, [event.target.name]: event.target.value });
+  };
+
+  const handleSubmit = (event) => {
+      event.preventDefault();
+      postServiceData();
+  }
+
   return (
     <>
       <div className="row">
@@ -38,7 +59,8 @@ function Vendor() {
         </div>
         <div className="col-5 main-ak-2 ">
           <div className="text-center fs-5 text-dark">Add Service</div>
-          <form>
+
+          <form onSubmit={handleSubmit}>
             <div className="row  my-4">
               <label
                 htmlFor="vcode"
@@ -49,8 +71,9 @@ function Vendor() {
               <input
                 type="text"
                 placeholder="Enter your vendor code"
-                name="vcode"
+              
                 className="col-5 form-ak-1"
+                disabled
               />
             </div>
             <div className="row  my-4">
@@ -63,8 +86,9 @@ function Vendor() {
               <input
                 type="text"
                 placeholder="Enter your service  code"
-                name="scode"
+               
                 className="col-5 form-ak-1"
+                disabled
               />
             </div>
             <div className="row  my-4">
@@ -76,15 +100,17 @@ function Vendor() {
               </label>
               <input
                 type="text"
-                placeholder="prise"
-                name="pd1"
+                placeholder="price"
+                name="price1"
                 className="col-2 form-ak-1"
+                onChange={handleChange}
               />
               <input
                 type="text"
-                placeholder="purpose of prise 1"
-                name="pdu1"
+                placeholder="purpose of price 1"
+                name="purpose1"
                 className="col-3 form-ak-1"
+                onChange={handleChange}
               />
             </div>
             <div className="row  my-4">
@@ -96,15 +122,17 @@ function Vendor() {
               </label>
               <input
                 type="text"
-                placeholder="prise"
-                name="pd2"
+                placeholder="Price"
+                name="price1"
                 className="col-2 form-ak-1"
+                onChange={handleChange}
               />
               <input
                 type="text"
-                placeholder="purpose of prise 2"
-                name="pdu2"
+                placeholder="purpose of price 2"
+                name="purpose2"
                 className="col-3 form-ak-1"
+                onChange={handleChange}
               />
             </div>
             <div className="row my-4">
@@ -114,7 +142,7 @@ function Vendor() {
               >
                 Category:
               </label>
-              <select className="col-5 form-ak-1 " name="category">
+              <select className="col-5 form-ak-1 " name="category"  onChange={handleChange}>
                 <option>Photoshoot</option>
                 <hr></hr>
                 <option>Bridalwaer </option>
@@ -140,9 +168,10 @@ function Vendor() {
               </label>
               <input
                 type="text"
-                placeholder="Enter total event exp."
-                name="rating"
+                placeholder="Experience"
+                name="exp"
                 className="col-5 form-ak-1"
+                onChange={handleChange}
               />
             </div>
             <div className="row my-4">
@@ -154,9 +183,10 @@ function Vendor() {
               </label>
               <input
                 type="text"
-                placeholder="Enter Emage URL"
-                name="image1"
+                placeholder="Enter Emage 1"
+                name="img1"
                 className="col-5 form-ak-1"
+                onChange={handleChange}
               />
             </div>
             <div className="row my-4">
@@ -168,9 +198,10 @@ function Vendor() {
               </label>
               <input
                 type="text"
-                placeholder="Enter image URL"
-                name="image2"
+                placeholder="Enter image 2"
+                name="img2"
                 className="col-5 form-ak-1"
+                onChange={handleChange}
               />
             </div>
             <div className="row my-4">
@@ -183,10 +214,28 @@ function Vendor() {
               <input
                 type="text"
                 placeholder="Enter Image 3"
-                name="image3"
+                name="img3"
                 className="col-5 form-ak-1 align-items-center"
+                onChange={handleChange}
               />
             </div>
+
+            <div className="row my-4">
+              <label
+                htmlFor="image4"
+                className="col-4 d-flex justify-content-end align-items-center"
+              >
+                Image 3:
+              </label>
+              <input
+                type="text"
+                placeholder="Enter Image 4"
+                name="img4"
+                className="col-5 form-ak-1 align-items-center"
+                onChange={handleChange}
+              />
+            </div>
+
             <div className="row my-4">
               <label
                 htmlFor="image3"
@@ -211,8 +260,9 @@ function Vendor() {
               <input
                 type="text"
                 placeholder="Enter Description"
-                name="det"
+                name="description"
                 className="col-5 form-ak-1"
+                onChange={handleChange}
               />
             </div>
             <div className="row my-4">
@@ -224,9 +274,10 @@ function Vendor() {
               </label>
               <input
                 type="text"
-                placeholder="Enter details about service"
-                name="image3"
+                placeholder="Enter Short Detail"
+                name="content"
                 className="col-5 form-ak-1"
+                onChange={handleChange}
               />
             </div>
             <div className="my-4 d-flex justify-content-center">
