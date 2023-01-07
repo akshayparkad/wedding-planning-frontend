@@ -5,28 +5,29 @@ import SidebarProfile from "./SidebarProfile";
 
 function UserProfileEdit() {
   let param = useParams();
-  const[data,setData] = useState();
-  let user ;
+  const [user, setUser] = useState({ username: "", email: "", location: "" });
+  const [updatedUser, setUpdateUser] = useState();
   let navigate = useNavigate();
   const getuserData = async () => {
     const use = await getUser(param.uid);
-    use=use.data;
+    setUser(use.data);
   };
 
   const handleChange = (event) => {
-    setData({ ...data, [event.target.name]: event.terget.value });
+    console.log(event);
+    setUpdateUser({ ...updatedUser, [event.target.name]: event.terget.value });
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    var response = await userData(data);
-    console.log(response);
+    console.log(updatedUser);
+    var response = await userData(updatedUser);
     navigate(`/userprofile/${param.uid}`);
   };
 
   useEffect(() => {
     getuserData();
-  },[]);
+  }, []);
 
   return (
     <div className="user-profile-18">
@@ -39,7 +40,7 @@ function UserProfileEdit() {
               type="text"
               id="username"
               name="username"
-              value={user.username}
+              defaultValue={user.username}
               onChange={handleChange}
             />
             <br />
@@ -49,7 +50,7 @@ function UserProfileEdit() {
               type="email"
               id="email"
               name="email"
-              value={user.email}
+              defaultValue={user.email}
               onChange={handleChange}
             />
             <br />
@@ -59,7 +60,7 @@ function UserProfileEdit() {
               type="text"
               id="password"
               name="location "
-              value={user.location}
+              defaultValue={user.location}
               onChange={handleChange}
             />
             <br />
@@ -70,7 +71,7 @@ function UserProfileEdit() {
       </div>
 
       <div className="user-profile-right">
-        <SidebarProfile  uid={ param.uid} />
+        <SidebarProfile uid={param.uid} />
       </div>
     </div>
   );
