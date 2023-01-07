@@ -2,16 +2,29 @@ import "./Header.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.js";
 import { Link } from "react-router-dom";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import ListGroup from "react-bootstrap/ListGroup";
 import ListGroupItem from "react-bootstrap/esm/ListGroupItem";
+import { getSessionData } from "../../../Service/User";
 
-export function Header1() {
+export function Header1({ justBool }) {
   const [show, setShow] = useState(false);
-
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  let user;
+
+  var getSession = async () => {
+    const session = await getSessionData();
+    console.log(session);
+    user = session.data.type;
+    console.log(user);
+  };
+  useEffect(() => {
+    getSession();
+  }, [justBool]);
+
   return (
     <>
       <div className="row m-0 p-0 header ">
@@ -57,7 +70,10 @@ export function Header1() {
                   </a>
                   <ul className="dropdown-menu">
                     <li>
-                      <Link to={"/vendorsList"} className="dropdown-item bg_drop">
+                      <Link
+                        to={"/vendorsList"}
+                        className="dropdown-item bg_drop"
+                      >
                         Mumbai
                       </Link>
                     </li>
@@ -75,10 +91,7 @@ export function Header1() {
                     <li>
                       <hr className="dropdown-divider" />
                     </li>
-                    <Link
-                      to={"/vendorsList"}
-                      className="dropdown-item bg_drop"
-                    >
+                    <Link to={"/vendorsList"} className="dropdown-item bg_drop">
                       Kolkata
                     </Link>
                     <li>
@@ -211,8 +224,11 @@ export function Header1() {
                             <h5 className="font">
                               <b>Address:-</b>
                             </h5>
-                            <h6> Main Office, Raintree Marg, Sector 7, Cbd Belapur,
-                            Navi Mumbai - 400614 </h6>
+                            <h6>
+                              {" "}
+                              Main Office, Raintree Marg, Sector 7, Cbd Belapur,
+                              Navi Mumbai - 400614{" "}
+                            </h6>
                             <hr className="font"></hr>
                           </ListGroup.Item>
                         </ListGroupItem>
@@ -223,6 +239,14 @@ export function Header1() {
               </ul>
 
               <ul className="navbar-nav mx-5 my-4 m">
+                <li className="nav-item ml-5">
+                  <Link
+                    to={"/userprofile"}
+                    className="nav-link active hover_line"
+                  >
+                    Profile
+                  </Link>
+                </li>
                 <li className="nav-item ml-5">
                   <Link to={"/signup"} className="nav-link active hover_line">
                     Sign-up

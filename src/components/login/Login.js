@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { getUserData } from "../../Service/login";
 import "./login.css";
 
-const Login = () => {
+const Login = ({ setJustBool, justBool }) => {
   var navigate = useNavigate();
   var [errorEmail, setEmail] = useState("");
   var [errorPassword, setPassword] = useState("");
@@ -25,7 +25,8 @@ const Login = () => {
     } else {
       setEmail("");
       if (response.data.password === data.password) {
-        navigate("/");
+        setJustBool(!justBool);
+        navigate(`/userprofile/${response.data.uid}`);
       } else {
         setPassword("*incorrect password");
       }
