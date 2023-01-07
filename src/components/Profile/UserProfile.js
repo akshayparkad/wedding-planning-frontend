@@ -5,12 +5,12 @@ import './UserProfile.css'
 
 function UserProfile() {
 
-    let param = useParams();
+   
     return (
         <>
             <div className="user-profile-18">
 
-                <div className="user-profile-left">
+                <div className="user-profile-left mt-4">
 
                     <div className='user-box-18-1'>
                         <div className='vendor-id-18'>ID250</div>
@@ -48,7 +48,7 @@ function UserProfile() {
 
 
                 <div className="user-profile-right">
-                    <SidebarProfile uid={ param.uid} />
+                    <SidebarProfile/>
                 </div>
 
             </div>

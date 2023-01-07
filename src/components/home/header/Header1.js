@@ -10,10 +10,17 @@ import { getSessionData } from "../../../Service/User";
 
 export function Header1({ justBool }) {
   const [show, setShow] = useState(false);
+  const [user, setUser] = useState({type:null});
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  let user;
+  
+  var getSession = async () => {
+    const session = await getSessionData();
+    setUser(session.data);
+
+   
+  };
 
   var getSession = async () => {
     const session = await getSessionData();
@@ -21,6 +28,8 @@ export function Header1({ justBool }) {
     user = session.data.type;
     console.log(user);
   };
+
+
   useEffect(() => {
     getSession();
   }, [justBool]);
@@ -237,16 +246,39 @@ export function Header1({ justBool }) {
                   </div>
                 </li>
               </ul>
-
               <ul className="navbar-nav mx-5 my-4 m">
-                <li className="nav-item ml-5">
-                  <Link
-                    to={"/userprofile"}
-                    className="nav-link active hover_line"
-                  >
-                    Profile
-                  </Link>
-                </li>
+
+              <div>     
+            {
+                (() => {
+                    if(user.type == "user" || user.type == "vendor") {
+                            return (
+
+                              <li className="nav-item ml-5">
+                              <Link
+                                to={"/userprofile"}
+                                className="nav-link active hover_line"
+                              >
+                                Profile
+                              </Link>
+                            </li>
+                            )
+                        } else if (null) {
+                            return (
+                              <li className="nav-item ml-5">
+                              <Link
+                                to={"/signin"}
+                                className="nav-link active hover_line"
+                              >
+                                Profile
+                              </Link>
+                            </li>
+                            )
+                        }
+                })()  
+            }  
+        </div> 
+
                 <li className="nav-item ml-5">
                   <Link to={"/signup"} className="nav-link active hover_line">
                     Sign-up

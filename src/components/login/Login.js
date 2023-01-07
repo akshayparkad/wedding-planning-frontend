@@ -15,6 +15,8 @@ const Login = ({ setJustBool, justBool }) => {
     setData({ ...data, [event.target.name]: event.target.value });
   };
 
+  
+
   var handleSubmit = async (event) => {
     console.log(event);
     event.preventDefault();
@@ -26,7 +28,10 @@ const Login = ({ setJustBool, justBool }) => {
       setEmail("");
       if (response.data.password === data.password) {
         setJustBool(!justBool);
-        navigate(`/userprofile/${response.data.uid}`);
+
+        console.log(justBool);
+
+        navigate(`/`);
       } else {
         setPassword("*incorrect password");
       }

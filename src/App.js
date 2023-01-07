@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
 import "./components/home/Home.css";
 import "./components/home/footer/Footer.css";
@@ -19,7 +19,14 @@ import { Signup } from "./components/signup/Signup";
 import { Header1 } from "./components/home/header/Header1";
 
 function App() {
-  const [justBool, setJustBool] = React.useState(false);
+
+  const [justBool, setJustBool] = useState(false);
+  
+  useEffect(() => {
+    
+  }, [justBool])
+  
+
   return (
     <BrowserRouter>
       <Header1 justBool={justBool} />
@@ -28,10 +35,10 @@ function App() {
         <Route path="/vendor" element={<Vendor />}></Route>
         <Route path="/vendorsList" element={<VendorsList />}></Route>
         <Route path="/serviceDetail" element={<ServiceDetail />}></Route>
-        <Route path="/userprofile/:uid" element={<UserProfile />}></Route>
+        <Route path="/userprofile" element={<UserProfile />}></Route>
         <Route path="/about" element={<About />}></Route>
         <Route path="/admin" element={<Admin />}></Route>
-        <Route path="/userprofileedit/:uid" element={<UserProfileEdit />}></Route>
+        <Route path="/userprofileedit" element={<UserProfileEdit />}></Route>
         <Route path="/changepassword" element={<ChangePassword />}></Route>
         <Route
           path="/signin"
