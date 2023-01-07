@@ -1,8 +1,11 @@
 import React from 'react'
+import { useParams } from 'react-router-dom'
 import SidebarProfile from './SidebarProfile'
 import './UserProfile.css'
 
 function UserProfile() {
+
+    let param = useParams();
     return (
         <>
             <div className="user-profile-18">
@@ -45,7 +48,7 @@ function UserProfile() {
 
 
                 <div className="user-profile-right">
-                  <SidebarProfile/>
+                    <SidebarProfile uid={ param.uid} />
                 </div>
 
             </div>

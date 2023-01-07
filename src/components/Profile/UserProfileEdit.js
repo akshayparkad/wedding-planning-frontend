@@ -1,37 +1,79 @@
-import React from 'react'
-import SidebarProfile from './SidebarProfile'
+import React, { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { getUser, userData } from "../../Service/User";
+import SidebarProfile from "./SidebarProfile";
 
 function UserProfileEdit() {
-    return (
+  let param = useParams();
+  const[data,setData] = useState();
+  let user ;
+  let navigate = useNavigate();
+  const getuserData = async () => {
+    const use = await getUser(param.uid);
+    use=use.data;
+  };
 
-        <div className="user-profile-18">
+  const handleChange = (event) => {
+    setData({ ...data, [event.target.name]: event.terget.value });
+  };
 
-            <div className="user-profile-left">
-            <div className="edit-form-18">
-                <form className='editform-18'>
-                    <label for="username">Username:</label><br />
-                    <input type="text" id="username" name="username" /><br />
-                    <label for="email">Email:</label><br />
-                    <input type="email" id="email" name="email" /><br />
-                    <label for="password">Password:</label><br />
-                    <input type="password" id="password" name="password" /><br />
-                    <label for="confirmpassword">Confirm Password:</label><br />
-                    <input type="password" id="password" name="confirmpassword" />
-                    <br />
-                    <input type="submit" id="update-18" value="Update" />
-                </form>
-            </div>
-            </div>
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    var response = await userData(data);
+    console.log(response);
+    navigate(`/userprofile/${param.uid}`);
+  };
 
+  useEffect(() => {
+    getuserData();
+  },[]);
 
-            <div className="user-profile-right">
-                <SidebarProfile />
-            </div>
-
-
+  return (
+    <div className="user-profile-18">
+      <div className="user-profile-left">
+        <div className="edit-form-18">
+          <form className="editform-18" onSubmit={handleSubmit}>
+            <label for="username">Username:</label>
+            <br />
+            <input
+              type="text"
+              id="username"
+              name="username"
+              value={user.username}
+              onChange={handleChange}
+            />
+            <br />
+            <label for="email">Email:</label>
+            <br />
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={user.email}
+              onChange={handleChange}
+            />
+            <br />
+            <label for="location">location:</label>
+            <br />
+            <input
+              type="text"
+              id="password"
+              name="location "
+              value={user.location}
+              onChange={handleChange}
+            />
+            <br />
+            <br />
+            <input type="submit" id="update-18" value="Update" />
+          </form>
         </div>
+      </div>
 
-    )
+      <div className="user-profile-right">
+        <SidebarProfile  uid={ param.uid} />
+      </div>
+    </div>
+  );
 }
 
-export default UserProfileEdit
+export default UserProfileEdit;
