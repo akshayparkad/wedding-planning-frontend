@@ -1,20 +1,25 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.js";
 import "./Vendor.css";
 import { postWedServiceDetails } from "../API/Services";
+import { getSessionData } from "../../Service/User";
+import { getWedServicesById } from "../../Service/WedService";
 
 function Vendor() {
   const[sdata, setSdata] = useState();
+  const[user, setUser] = useState({uid:null});
+  const[serviceData, setServiceData] = useState([]);
 
-  console.log(sdata);
+  // const data = {obj1: sdata, obj2: user};
+
 
   const postServiceData = async () =>{
-
-     
+    sdata.uid = document.getElementById('myid').value;
     const response = await postWedServiceDetails(sdata);
     console.log(response);
   }
+
 
   const handleChange = (event) => {
     setSdata({ ...sdata, [event.target.name]: event.target.value });
@@ -24,6 +29,20 @@ function Vendor() {
       event.preventDefault();
       postServiceData();
   }
+
+  const getSession = async() =>{
+
+    const response = await getSessionData();
+    setUser(response.data);
+    const response1 = await getWedServicesById(response.data.uid);
+    setServiceData(response1.data);
+    console.log(response1.data);
+  }
+  
+  useEffect( () => {
+    getSession();
+
+  },[]);
 
   return (
     <>
@@ -71,9 +90,11 @@ function Vendor() {
               <input
                 type="text"
                 placeholder="Enter your vendor code"
-              
+                id="myid"
+                value={user.uid}
                 className="col-5 form-ak-1"
                 disabled
+                onChange={handleChange}
               />
             </div>
             <div className="row  my-4">
@@ -143,6 +164,8 @@ function Vendor() {
                 Category:
               </label>
               <select className="col-5 form-ak-1 " name="category"  onChange={handleChange}>
+              <option>Select Category</option>
+                <hr></hr>
                 <option>Photoshoot</option>
                 <hr></hr>
                 <option>Bridalwaer </option>
@@ -225,7 +248,7 @@ function Vendor() {
                 htmlFor="image4"
                 className="col-4 d-flex justify-content-end align-items-center"
               >
-                Image 3:
+                Image 4:
               </label>
               <input
                 type="text"
@@ -236,20 +259,6 @@ function Vendor() {
               />
             </div>
 
-            <div className="row my-4">
-              <label
-                htmlFor="image3"
-                className="col-4 d-flex justify-content-end align-items-center"
-              >
-                Image 3:
-              </label>
-              <input
-                type="text"
-                placeholder="Enter Image 4"
-                name="image4"
-                className="col-5 form-ak-1 align-items-center"
-              />
-            </div>
             <div className="row my-4">
               <label
                 htmlFor="det"
