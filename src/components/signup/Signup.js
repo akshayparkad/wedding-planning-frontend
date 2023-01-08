@@ -107,12 +107,12 @@ export function Signup() {
         />
       </div>
       <div className="col-4">
-        <div className="d-flex justify-content-center">
+        <div className="d-flex justify-content-center pt-1">
           <img
-            src="Wedlogo.png"
-            style={{ height: "20%", width: "20%" }}
-            alt="Wedlogo.png"
-            className="Wedlogo.png"
+            src="sign-up-logo.png"
+            style={{ height: "30%", width: "30%" }}
+            alt="sign-up-logo.png"
+            className="sign-up-logo.png"
           />
         </div>
 
@@ -235,7 +235,7 @@ export function Signup() {
             <div className="row my-4 d-flex justify-content-center">
               <button
                 type="submit"
-                style={{ width: "30%", color: "white", marginLeft: "145px"}}
+                style={{ width: "30%", color: "white", marginLeft: "145px" }}
                 id="signbtn"
                 className="btn "
               >
