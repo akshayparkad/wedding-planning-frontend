@@ -8,7 +8,7 @@ import ListGroup from "react-bootstrap/ListGroup";
 import ListGroupItem from "react-bootstrap/esm/ListGroupItem";
 import { getDestroySession, getSessionData } from "../../../Service/User";
 
-export function Header1({ justBool ,setJustBool}) {
+export function Header1({ justBool, setJustBool }) {
   const [show, setShow] = useState(false);
   const [user, setUser] = useState({ type: null });
   const handleClose = () => setShow(false);
@@ -250,98 +250,98 @@ export function Header1({ justBool ,setJustBool}) {
                   </div>
                 </li>
               </ul>
-              
-                <div>
-                  {(() => {
-                    if (user.type == "admin") {
-                      return (
-                        <ul className="navbar-nav mx-5 my-4 m">
-                          <li className="nav-item ml-5">
-                            <Link
-                              to={"/admin"}
-                              className="nav-link active hover_line"
-                            >
-                              Admin
-                            </Link>
-                          </li>
-                          <li className="nav-item ml-5">
-                            <Link
-                              to={"/signin"}
-                              className="nav-link active hover_line"
-                              onClick={destroysession}
-                            >
-                              Logout
-                            </Link>
-                          </li>
-                        </ul>
-                      );
-                    } else if (user.type == "vendor") {
-                      return (
-                        <ul className="navbar-nav mx-5 my-4 m">
-                          <li className="nav-item ml-5">
-                            <Link
-                              to={"/vendor"}
-                              className="nav-link active hover_line"
-                            >
-                              Vendor
-                            </Link>
-                          </li>
-                          <li className="nav-item ml-5">
-                            <Link
-                              to={"/signin"}
-                              className="nav-link active hover_line"
-                              onClick={destroysession}
-                            >
-                              Logout
-                            </Link>
-                          </li>
-                        </ul>
-                      );
-                    } else if (user.type == "user") {
-                      return (
-                        <ul className="navbar-nav mx-5 my-4 m">
-                          <li className="nav-item ml-5">
-                            <Link
-                              to={"/userprofile"}
-                              className="nav-link active hover_line"
-                            >
-                              profile
-                            </Link>
-                          </li>
-                          <li className="nav-item ml-5">
-                            <Link
-                              to={"/signin"}
-                              className="nav-link active hover_line"
-                              onClick={destroysession}
-                            >
-                              Logout
-                            </Link>
-                          </li>
-                        </ul>
-                      );
-                    } else { 
-                      return (
-                        <ul className="navbar-nav mx-5 my-4 m">
-                          <li className="nav-item ml-5">
-                            <Link
-                              to={"/signup"}
-                              className="nav-link active hover_line"
-                            >
-                              Signup
-                            </Link>
-                          </li>
-                          <li className="nav-item ml-5">
-                            <Link
-                              to={"/signin"}
-                              className="nav-link active hover_line"
-                            >
-                              Signin
-                            </Link>
-                          </li>
-                        </ul>
 
-                   ) }
-                  })()}
+              <div>
+                {(() => {
+                  if (user.type == "admin") {
+                    return (
+                      <ul className="navbar-nav mx-5 my-4 m">
+                        <li className="nav-item ml-5">
+                          <Link
+                            to={"/admin"}
+                            className="nav-link active hover_line"
+                          >
+                            Admin
+                          </Link>
+                        </li>
+                        <li className="nav-item ml-5">
+                          <Link
+                            to={"/signin"}
+                            className="nav-link active hover_line"
+                            onClick={destroysession}
+                          >
+                            Logout
+                          </Link>
+                        </li>
+                      </ul>
+                    );
+                  } else if (user.type == "vendor") {
+                    return (
+                      <ul className="navbar-nav mx-5 my-4 m">
+                        <li className="nav-item ml-5">
+                          <Link
+                            to={"/vendor"}
+                            className="nav-link active hover_line"
+                          >
+                            Vendor
+                          </Link>
+                        </li>
+                        <li className="nav-item ml-5">
+                          <Link
+                            to={"/signin"}
+                            className="nav-link active hover_line"
+                            onClick={destroysession}
+                          >
+                            Logout
+                          </Link>
+                        </li>
+                      </ul>
+                    );
+                  } else if (user.type == "user") {
+                    return (
+                      <ul className="navbar-nav mx-5 my-4 m">
+                        <li className="nav-item ml-5">
+                          <Link
+                            to={"/userprofile"}
+                            className="nav-link active hover_line"
+                          >
+                            Profile
+                          </Link>
+                        </li>
+                        <li className="nav-item ml-5">
+                          <Link
+                            to={"/signin"}
+                            className="nav-link active hover_line"
+                            onClick={destroysession}
+                          >
+                            Logout
+                          </Link>
+                        </li>
+                      </ul>
+                    );
+                  } else {
+                    return (
+                      <ul className="navbar-nav mx-5 my-4 m">
+                        <li className="nav-item ml-5">
+                          <Link
+                            to={"/signup"}
+                            className="nav-link active hover_line"
+                          >
+                            Signup
+                          </Link>
+                        </li>
+                        <li className="nav-item ml-5">
+                          <Link
+                            to={"/signin"}
+                            className="nav-link active hover_line"
+                          >
+                            Signin
+                          </Link>
+                        </li>
+                      </ul>
+                    );
+                  }
+                })()}
               </div>
             </div>
           </div>

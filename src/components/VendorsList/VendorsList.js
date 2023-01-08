@@ -79,8 +79,8 @@ function VendorsList() {
 
                 <div class="vendor-card-info">
                   <h3 class="vendor-card-name">
-                    <Link to="/serviceDetail" className="text-link">
-                      {ele.username}
+                    <Link to={ `/serviceDetail/${ele.sid}`} className="text-link">
+                      {ele.username}Akshay photography
                     </Link>
                   </h3>
                   <p class="vendor-card-description">{ele.description}</p>
