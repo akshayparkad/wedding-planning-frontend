@@ -86,7 +86,7 @@ export function Header1({ justBool, setJustBool }) {
                   <ul className="dropdown-menu">
                     <li>
                       <Link
-                        to={"/vendorsList/mumbai"}
+                        to={"/vendorsList/city/mumbai"}
                         className="dropdown-item bg_drop"
                       >
                         Mumbai
@@ -97,7 +97,7 @@ export function Header1({ justBool, setJustBool }) {
                     </li>
                     <li>
                       <Link
-                        to={"/vendorsList/pune"}
+                        to={"/vendorsList/city/pune"}
                         className="dropdown-item bg_drop"
                       >
                         Pune
@@ -107,7 +107,7 @@ export function Header1({ justBool, setJustBool }) {
                       <hr className="dropdown-divider" />
                     </li>
                     <Link
-                      to={"/vendorsList/kolkata"}
+                      to={"/vendorsList/city/kolkata"}
                       className="dropdown-item bg_drop"
                     >
                       Kolkata
@@ -117,7 +117,7 @@ export function Header1({ justBool, setJustBool }) {
                     </li>
                     <li>
                       <Link
-                        to={"/vendorsList/goa"}
+                        to={"/vendorsList/city/goa"}
                         className="dropdown-item bg_drop"
                       >
                         Goa

@@ -3,7 +3,7 @@ import "./VendorsList.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.js";
 import { Link, useParams } from "react-router-dom";
-import { getWedServicesByCategory } from "../../Service/WedService";
+import { getWedServicesByCategory, getWedServicesByLocation } from "../../Service/WedService";
 
 function VendorsList() {
   const [stylelist, setStyleList] = useState("vendors-list-18");
@@ -22,9 +22,17 @@ function VendorsList() {
   };
 
   const getSpecificService = async () => {
+    if(params.city == "city"){
+
+      const res = await getWedServicesByLocation(params.mycity);
+      console.log(res);
+      setService(res.data);
+    }else{
+
     const response = await getWedServicesByCategory(params.service);
     console.log(response);
     setService(response.data);
+   }
   };
 
   useEffect(() => {
@@ -80,7 +88,7 @@ function VendorsList() {
                 <div class="vendor-card-info">
                   <h3 class="vendor-card-name">
                     <Link to={ `/serviceDetail/${ele.sid}`} className="text-link">
-                      {ele.vendorname}Akshay photography
+                      {ele.vendorname}
                     </Link>
                   </h3>
                   <p class="vendor-card-description">{ele.description}</p>

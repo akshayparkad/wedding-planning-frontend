@@ -4,28 +4,42 @@ import "bootstrap/dist/js/bootstrap.bundle.js";
 import "./ServiceDetail.css";
 import { useNavigate, useParams } from "react-router-dom";
 import { getSpacificService } from "../../Service/WedService";
-import { addOrder } from "../../Service/User";
+import { addOrder, getSessionData } from "../../Service/User";
 
 export default function ServiceDetail() {
   const params = useParams();
   const [service, setService] = useState({});
+  const [user, setUser] = useState();
+
+  const navigate = useNavigate();
+
+
   const getWedServicBySid = async () => {
+
+
     const response = await getSpacificService(params.sid);
     setService(response.data);
-    console.log(response.data);
+
   };
+
   useEffect(() => {
     getWedServicBySid();
   }, [params]);
 
   const addorder = async () => {
+
+    const resp = await getSessionData();
+
+    if(resp.data.type == "user"){
     const order = {
       vendorname: service.vendorname,
       category: service.category,
       price: service.price1,
-      uid: service.uid,
+      uid: resp.data.uid,
     };
     const responce = await addOrder(order);
+    navigate('/userprofile');
+    }
   };
   return (
     <div className="container">

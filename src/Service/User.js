@@ -23,11 +23,11 @@ export function addOrder(order) {
   return axios.post(`${BASE_URL}/addOrder`,order)
 }
 
-export function getOrderByUid()
+export function getOrderByUid(uid)
 { 
-  return axios.get(`${BASE_URL}/getOrders`)
+  return axios.get(`${BASE_URL}/order/${uid}`)
 }
 
-export function cncncelOrder(id) { 
-  return axios.delete(`${BASE_URL} / getOrders / ${id}`);
+export function cancleOrder(id) { 
+  return axios.delete(`${BASE_URL}/order/${id}`);
 }

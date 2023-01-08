@@ -25,3 +25,8 @@ export function getSpacificService(id) {
   console.log(id);
   return axios.get(`${BASE_URL}/getServiceById?sid=${id}`);
 }
+
+export function getWedServicesByLocation(location) {
+  return axios.get(`${BASE_URL}/getServiceLocation?location=${location}`);
+}
+

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { cncncelOrder, getOrderByUid, getSessionData } from "../../Service/User";
+import { cancleOrder, getOrderByUid, getSessionData } from "../../Service/User";
 import SidebarProfile from "./SidebarProfile";
 import "./UserProfile.css";
 
@@ -22,10 +21,11 @@ function UserProfile() {
   }, [bool]);
     
     const orderCancel = async (id) => { 
-        const responce = await cncncelOrder(id);
+        const res = await cancleOrder(id);
         setBool(!bool)
     }
 
+    console.log(order);
   return (
     <>
       <div className="user-profile-18">
@@ -37,6 +37,7 @@ function UserProfile() {
                           <div className="vendor-name-18">{ele.vendorname}</div>
                           <div className="vendor-name-18">{ele.category}</div>
                           <div className="vendor-name-18">{ ele.price}</div>
+                          <div className="vendor-name-18">{ ele.hdate}</div>
                         <div>
                                   <button className="btn-18" onClick={() => { orderCancel(ele.oid) }}>Cancle Order</button>
                         </div>
