@@ -31,20 +31,20 @@ export function Footer() {
             <h4><i>Quik Links</i></h4>
             <ui className="list-unstyled">
               <li><Link to={"/"}aria-current="page"className="text active hover_line" style={{textDecoration:'none'} }>Home</Link></li>
-              <li><Link to={"/vendorsList"}className="text active hover_line" style={{textDecoration:'none'} }>Venues</Link></li>
-              <li><Link to={"/vendorsList"}className="text active hover_line" style={{textDecoration:'none'} }>Vender</Link></li>
+              <li><Link to={"/vendorsList/mumbai"}className="text active hover_line" style={{textDecoration:'none'} }>Venue</Link></li>
+              <li><Link to={"/vendorsList/Photoshoot"}className="text active hover_line" style={{textDecoration:'none'} }>Services</Link></li>
               <li > <Link to={"/about"}className="text active hover_line" style={{textDecoration:'none'} }> About us </Link></li>
             </ui>
           </div>
           <div className="col">
             <h4><i>Favourites</i></h4>
             <ui className="list-unstyled">
-              <li><Link to={"/vendorsList"}className="text active hover_line" style={{textDecoration:'none'} }>Photographer</Link></li>
-              <li><Link to={"/vendorsList"}className="text active hover_line" style={{textDecoration:'none'} }>Bridal Wear</Link></li>
-              <li><Link to={"/vendorsList"}className="text active hover_line" style={{textDecoration:'none'} }>Make Up</Link></li>
-              <li><Link to={"/vendorsList"}className="text active hover_line" style={{textDecoration:'none'} }>Groom Wear</Link></li>
-              <li><Link to={"/vendorsList"}className="text active hover_line" style={{textDecoration:'none'} }>Catering</Link></li>
-              <li><Link to={"/vendorsList"}className="text active hover_line" style={{textDecoration:'none'} }>Planning And Decoration</Link></li>
+              <li><Link to={"/vendorsList/Photoshoot"}className="text active hover_line" style={{textDecoration:'none'} }>Photoshoot</Link></li>
+              <li><Link to={"/vendorsList/Bridalwear"}className="text active hover_line" style={{textDecoration:'none'} }>Bridal Wear</Link></li>
+              <li><Link to={"/vendorsList/Makeup"}className="text active hover_line" style={{textDecoration:'none'} }>Make Up</Link></li>
+              <li><Link to={"/vendorsList/Groomwear"}className="text active hover_line" style={{textDecoration:'none'} }>Groom Wear</Link></li>
+              <li><Link to={"/vendorsList/Catering"}className="text active hover_line" style={{textDecoration:'none'} }>Catering</Link></li>
+              <li><Link to={"/vendorsList/Palning & decoration"}className="text active hover_line" style={{textDecoration:'none'} }>Planning And Decoration</Link></li>
             </ui>
           </div>
           {/* Column3 */}
