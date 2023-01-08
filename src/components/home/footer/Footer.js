@@ -30,22 +30,21 @@ export function Footer() {
           <div className="col">
             <h4><i>Quik Links</i></h4>
             <ui className="list-unstyled">
-              <li>Home</li>
-              <li>Venues</li>
-              <li>Vender</li>
-              <li>Contact Us</li>
-              <li>About</li>
+              <li><Link to={"/"}aria-current="page"className="text active hover_line" style={{textDecoration:'none'} }>Home</Link></li>
+              <li><Link to={"/vendorsList"}className="text active hover_line" style={{textDecoration:'none'} }>Venues</Link></li>
+              <li><Link to={"/vendorsList"}className="text active hover_line" style={{textDecoration:'none'} }>Vender</Link></li>
+              <li > <Link to={"/about"}className="text active hover_line" style={{textDecoration:'none'} }> About us </Link></li>
             </ui>
           </div>
           <div className="col">
             <h4><i>Favourites</i></h4>
             <ui className="list-unstyled">
-              <li>Photographer</li>
-              <li>Bridal Wear</li>
-              <li>Make Up</li>
-              <li>Groom Wear</li>
-              <li>Catering</li>
-              <li>Planning And Decoration</li>
+              <li><Link to={"/vendorsList"}className="text active hover_line" style={{textDecoration:'none'} }>Photographer</Link></li>
+              <li><Link to={"/vendorsList"}className="text active hover_line" style={{textDecoration:'none'} }>Bridal Wear</Link></li>
+              <li><Link to={"/vendorsList"}className="text active hover_line" style={{textDecoration:'none'} }>Make Up</Link></li>
+              <li><Link to={"/vendorsList"}className="text active hover_line" style={{textDecoration:'none'} }>Groom Wear</Link></li>
+              <li><Link to={"/vendorsList"}className="text active hover_line" style={{textDecoration:'none'} }>Catering</Link></li>
+              <li><Link to={"/vendorsList"}className="text active hover_line" style={{textDecoration:'none'} }>Planning And Decoration</Link></li>
             </ui>
           </div>
           {/* Column3 */}
