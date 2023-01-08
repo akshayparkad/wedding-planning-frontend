@@ -17,6 +17,7 @@ import { About } from "./components/About/About";
 import Login from "./components/login/Login";
 import { Signup } from "./components/signup/Signup";
 import { Header1 } from "./components/home/header/Header1";
+import UpdateService from "./components/vendors/UpdateService";
 
 function App() {
   const [justBool, setJustBool] = useState(false);
@@ -43,6 +44,7 @@ function App() {
           element={<Login setJustBool={setJustBool} justBool={justBool} />}
         ></Route>
         <Route path="/signup" element={<Signup />}></Route>
+        <Route path="/updateservice/:id/:uid" element={<UpdateService />}></Route>
       </Routes>
       <Footer></Footer>
     </BrowserRouter>
