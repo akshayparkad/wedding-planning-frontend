@@ -15,4 +15,8 @@ export function getUser(id) {
   return axios.get(`${BASE_URL}/getUser?id=${id}`)
 }
 
+export function getDestroySession() {
+  return axios.get(`${BASE_URL}/destroysession`);
+}
+
 

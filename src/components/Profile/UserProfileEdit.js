@@ -1,37 +1,49 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { getUser, userData } from "../../Service/User";
+import { getSessionData, getUser, userData } from "../../Service/User";
 import SidebarProfile from "./SidebarProfile";
 
 function UserProfileEdit() {
   let param = useParams();
   const [user, setUser] = useState({ username: "", email: "", location: "" });
-  const [updatedUser, setUpdateUser] = useState();
+  const [updatedUser, setUpdateUser] = useState({uid:"", password: "", type:"", username: "", email: "", location: "", confirmPassword: ""});
+  // const [bool, setBool] = useState(false);
+
   let navigate = useNavigate();
+
+  //get user data
   const getuserData = async () => {
-    const use = await getUser(param.uid);
-    setUser(use.data);
-  };
-
-  const handleChange = (event) => {
-    console.log(event);
-    setUpdateUser({ ...updatedUser, [event.target.name]: event.terget.value });
-  };
-
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    console.log(updatedUser);
-    var response = await userData(updatedUser);
-    navigate(`/userprofile/${param.uid}`);
+    const response = await getSessionData();
+    setUser(response.data);
   };
 
   useEffect(() => {
     getuserData();
   }, []);
 
+
+  //update user data
+  const updateUserData = async () => {
+    var response = await userData(updatedUser);
+    navigate(`/userprofile`);
+  }
+
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    updatedUser.uid = user.uid;
+    updatedUser.type = user.type;
+    updatedUser.password = user.password;
+    updatedUser.confirmPassword = "";
+    updatedUser.username = document.getElementById('username').value;
+    updatedUser.email = document.getElementById('email').value;
+    updatedUser.location = document.getElementById('location').value;
+    updateUserData();
+  };
+
   return (
     <div className="user-profile-18">
-      <div className="user-profile-left">
+      <div className="user-profile-left mt-4">
         <div className="edit-form-18">
           <form className="editform-18" onSubmit={handleSubmit}>
             <label for="username">Username:</label>
@@ -41,7 +53,6 @@ function UserProfileEdit() {
               id="username"
               name="username"
               defaultValue={user.username}
-              onChange={handleChange}
             />
             <br />
             <label for="email">Email:</label>
@@ -51,17 +62,15 @@ function UserProfileEdit() {
               id="email"
               name="email"
               defaultValue={user.email}
-              onChange={handleChange}
             />
             <br />
             <label for="location">location:</label>
             <br />
             <input
               type="text"
-              id="password"
+              id="location"
               name="location "
               defaultValue={user.location}
-              onChange={handleChange}
             />
             <br />
             <br />
