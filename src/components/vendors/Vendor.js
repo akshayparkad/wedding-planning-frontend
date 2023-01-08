@@ -4,18 +4,21 @@ import "bootstrap/dist/js/bootstrap.bundle.js";
 import "./Vendor.css";
 import { postWedServiceDetails } from "../API/Services";
 import { getSessionData } from "../../Service/User";
-import { getWedServicesById } from "../../Service/WedService";
+import { deleteWedServicesById, getWedServicesById } from "../../Service/WedService";
+import { useNavigate } from "react-router-dom";
 
 function Vendor() {
   const[sdata, setSdata] = useState();
   const[user, setUser] = useState({uid:null});
   const[serviceData, setServiceData] = useState([]);
+  const [bool, setBool] = useState(false);
 
-  // const data = {obj1: sdata, obj2: user};
-
-
+  const navigate = useNavigate();
+//post service
   const postServiceData = async () =>{
     sdata.uid = document.getElementById('myid').value;
+    sdata.vendorname = user.username;
+    console.log(user.username);
     const response = await postWedServiceDetails(sdata);
     console.log(response);
   }
@@ -28,21 +31,30 @@ function Vendor() {
   const handleSubmit = (event) => {
       event.preventDefault();
       postServiceData();
+      setBool(true);
   }
 
+  //get session and service data
   const getSession = async() =>{
-
     const response = await getSessionData();
     setUser(response.data);
     const response1 = await getWedServicesById(response.data.uid);
     setServiceData(response1.data);
-    console.log(response1.data);
   }
   
   useEffect( () => {
     getSession();
+ 
+  },[bool]);
 
-  },[]);
+
+  //delete service
+
+  const handleDelete = async(id) =>{
+    const response = await deleteWedServicesById(id);
+    setBool(true);
+  }
+
 
   return (
     <>
@@ -62,19 +74,34 @@ function Vendor() {
               <button className="btn btn-warning btn-ak-1 ">Update</button>
             </div>
           </div>
+
+      { serviceData.map(item => {
+
+        return(
+
           <div className="row vendor-detail-ak-1 gap-2 mx-3 my-2 ">
-            <div className="col-2  ">001</div>
-            <div className="col-1  ">Photoshoot</div>
-            <div className="col-2  ">Mumabi</div>
-            <div className="col-1 ">50000</div>
-            <div className="col-2 ">200+</div>
-            <div className="col-1">
-              <button className="btn btn-danger btn-ak-1 ">Delete</button>
-            </div>
-            <div className="col-1">
-              <button className="btn btn-warning btn-ak-1 ">Update</button>
-            </div>
+          <div className="col-2  ">{item.sid}</div>
+          <div className="col-1  ">{item.category}</div>
+          <div className="col-2  ">{item.location}</div>
+          <div className="col-1 ">{item.price1}</div>
+          <div className="col-2 ">{item.exp}</div>
+          <div className="col-1">
+            <button className="btn btn-danger btn-ak-1" onClick={() => {
+                handleDelete(item.sid);
+            }}>Delete</button>
           </div>
+          <div className="col-1">
+            <button className="btn btn-warning btn-ak-1" onClick={() => {
+                navigate(`/updateservice/${item.sid}/${item.uid}`)
+            }}>Update</button>
+          </div>
+        </div>
+
+        )
+      })
+         
+      }
+
         </div>
         <div className="col-5 main-ak-2 ">
           <div className="text-center fs-5 text-dark">Add Service</div>
@@ -97,21 +124,28 @@ function Vendor() {
                 onChange={handleChange}
               />
             </div>
-            <div className="row  my-4">
-              <label
-                htmlFor="scode"
-                className="col-4 d-flex justify-content-end align-items-center"
+
+            <div className="row my-4">
+            <label
+                htmlFor="location"
+                className="col-4 d-flex justify-content-end  align-items-center"
               >
-                Service code :
+             Location:
               </label>
-              <input
-                type="text"
-                placeholder="Enter your service  code"
-               
-                className="col-5 form-ak-1"
-                disabled
-              />
+              <select className="col-5 form-ak-1" id="location1" name="location" onChange={handleChange}>
+              <option>Select Location</option>
+                <hr></hr>
+                <option>Mumbai</option>
+                <hr></hr>
+                <option>Pune </option>
+                <hr></hr>
+                <option>Kolkata</option>
+                <hr></hr>
+                <option>Goa</option>
+                <hr></hr>
+              </select>
             </div>
+           
             <div className="row  my-4">
               <label
                 htmlFor="pd1"
@@ -121,14 +155,16 @@ function Vendor() {
               </label>
               <input
                 type="text"
-                placeholder="price"
+                placeholder="Price"
+                id="price1"
                 name="price1"
                 className="col-2 form-ak-1"
                 onChange={handleChange}
               />
               <input
                 type="text"
-                placeholder="purpose of price 1"
+                placeholder="comment"
+                id="purpose1"
                 name="purpose1"
                 className="col-3 form-ak-1"
                 onChange={handleChange}
@@ -144,13 +180,15 @@ function Vendor() {
               <input
                 type="text"
                 placeholder="Price"
-                name="price1"
+                id="price2"
+                name="price2"
                 className="col-2 form-ak-1"
                 onChange={handleChange}
               />
               <input
                 type="text"
-                placeholder="purpose of price 2"
+                placeholder="comment"
+                id="purpose2"
                 name="purpose2"
                 className="col-3 form-ak-1"
                 onChange={handleChange}
