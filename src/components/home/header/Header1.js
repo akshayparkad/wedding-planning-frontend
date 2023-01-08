@@ -41,7 +41,12 @@ export function Header1({ justBool, setJustBool }) {
         <nav className="navbar navbar1 navbar-expand-lg p-0">
           <div className="container-fluid">
             <Link to={"/"} className="navbar-brand">
-              <img src="./image/logo.png" width="180px" height="70px" />
+              <img
+                src="main-logo.png"
+                alt="merryweddings"
+                width="210px"
+                height="auto"
+              />
             </Link>
             <button
               className="navbar-toggler"
@@ -305,7 +310,9 @@ export function Header1({ justBool, setJustBool }) {
                             to={"/userprofile"}
                             className="nav-link active hover_line"
                           >
+
                             Profile
+
                           </Link>
                         </li>
                         <li className="nav-item ml-5">
