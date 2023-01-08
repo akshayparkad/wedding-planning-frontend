@@ -19,4 +19,15 @@ export function getDestroySession() {
   return axios.get(`${BASE_URL}/destroysession`);
 }
 
+export function addOrder(order) { 
+  return axios.post(`${BASE_URL}/addOrder`,order)
+}
 
+export function getOrderByUid()
+{ 
+  return axios.get(`${BASE_URL}/getOrders`)
+}
+
+export function cncncelOrder(id) { 
+  return axios.delete(`${BASE_URL} / getOrders / ${id}`);
+}
