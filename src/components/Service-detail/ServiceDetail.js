@@ -1,17 +1,28 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.js";
 import "./ServiceDetail.css";
-import { Link } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { getSpacificService } from "../../Service/WedService";
 
 export default function ServiceDetail() {
+  const params = useParams();
+  const [service, setService] = useState({});
+  const getWedServicBySid = async () => {
+    const response = await getSpacificService(params.sid);
+    setService(response.data);
+    console.log(response.data);
+  };
+  useEffect(() => {
+    getWedServicBySid();
+  }, [params]);
   return (
     <div className="container">
       <div className="row mt-3">
         <div className="col-7 ">
           <img
-            src="https://setmywed.com/blog/wp-content/uploads/2022/06/65f6ba3105d8fa0b320a0a58089bb4d7-1200x900.jpg"
-            alt="not available"
+            src=
+            { service.img1}
             className="img-fluid img-ak-1"
           ></img>
         </div>
@@ -21,12 +32,12 @@ export default function ServiceDetail() {
               <h5 className="text-secondary">Per Day Price Estimate</h5>
             </div>
             <div className="border-ak-1 ">
-              <span className="color-ak-1 fs-4">50,000 per day</span>
-              <span>Photo Package</span>
+              <span className="color-ak-1 fs-4">{ service.price1} per day</span>
+              <span>{ service.purpose1}</span>
             </div>
             <div>
-              <span className="color-ak-1 fs-4">90,000 per day</span>
-              <span>Photo + Video</span>
+              <span className="color-ak-1 fs-4">{ service.price2}per day</span>
+              <span>{ service.purpose2}</span>
             </div>
           </div>
           <div className="detail-ak-1 my-4 ">
@@ -40,42 +51,50 @@ export default function ServiceDetail() {
       </div>
       <div className="row ">
         <div className="col-7 boxes-ak-2 ">
-          <div className="fs-3 py-1 color-ak-1">CamLens Photography</div>
-          <div className="fs-5 py-1 text-muted">Suburbs, Mumbai</div>
-          <div className="fs-5 py-1 text-muted">Event Handle Exp:-25 years </div>
+          <div className="fs-3 py-1 color-ak-1">{ service.username}</div>
+          <div className="fs-5 py-1 text-muted">{ service.location}</div>
+          <div className="fs-5 py-1 text-muted">
+            Event Handle Exp:-{ service.exp} years{" "}
+          </div>
         </div>
       </div>
       <div className="row mt-4">
         <div className="col-7 boxes-ak-2  py-2">
-              <h5 className="text-decoration-none text-secondary ">Project & About</h5>
+          <h5 className="text-decoration-none text-secondary ">
+            Project & About
+          </h5>
         </div>
       </div>
       <div className="row my-4  ">
         <hr></hr>
         <div className="col-4 px-1">
           <img
-            src="https://img.republicworld.com/republic-prod/stories/promolarge/xhdpi/jdeznelskguuoxud_1608529249.jpeg"
+            src={ service.img2}
             className=" img-ak-d-1"
           ></img>
         </div>
         <div className="col-4 px-2">
           <img
-            src="https://cdn.kamatharjun.com/wp-content/uploads/2022/04/Indian-Destination-Wedding-Gujarat-Nidhi-Shirish-104.jpg "
+           src={ service.img3}
             className=" img-ak-d-1"
           ></img>
         </div>
         <div className="col-4 px-2">
           <img
-            src="https://www.ptaufiqphotography.com/wp-content/uploads/2019/01/Indian-Wedding-Ceremony-Fateh-Garh-Heritage-Resort-2-1920x1280.jpg"
+            src={ service.img4}
             className=" img-ak-d-1"
           ></img>
-        </div> 
+        </div>
       </div>
       <div>
         <hr></hr>
-        <div className=" h5 text-secondary ">About CamLens Photography - Wedding Photographers,Suburbs, Mumbai</div>
+        <div className=" h5 text-secondary ">
+          { service.description}
+        </div>
         <hr></hr>
-        <div className=" text-muted">CamLens Photography is a wedding photography and videography company situated in Ganesh Nagar, Mumbai. Photographs have a way of informing us what is special and what should always be treasured and cherished. So, if you are a soon-to-be married couple looking for a skilled photographer, your quest ends with CamLens Photography. It is the creation of Kamlesh Parmar, an excellent photographer who catches each minute to precision.</div>
+        <div className=" text-muted">
+          { service.content}
+        </div>
       </div>
       <hr></hr>
     </div>

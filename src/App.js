@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./App.css";
 import "./components/home/Home.css";
 import "./components/home/footer/Footer.css";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useParams } from "react-router-dom";
 import Vendor from "./components/vendors/Vendor";
 import Home from "./components/home/Home";
 import { Footer } from "./components/home/footer/Footer";
@@ -20,22 +20,20 @@ import { Header1 } from "./components/home/header/Header1";
 import UpdateService from "./components/vendors/UpdateService";
 
 function App() {
-
   const [justBool, setJustBool] = useState(false);
-  
+
   useEffect(() => {
-    
-  }, [justBool])
-  
+    console.log(justBool);
+  }, [justBool]);
 
   return (
     <BrowserRouter>
-      <Header1 justBool={justBool} />
+      <Header1 setJustBool={setJustBool} justBool={justBool} />
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/vendor" element={<Vendor />}></Route>
-        <Route path="/vendorsList" element={<VendorsList />}></Route>
-        <Route path="/serviceDetail" element={<ServiceDetail />}></Route>
+        <Route path="/vendorsList/:service" element={<VendorsList />}></Route>
+        <Route path="/serviceDetail/:sid" element={<ServiceDetail />}></Route>
         <Route path="/userprofile" element={<UserProfile />}></Route>
         <Route path="/about" element={<About />}></Route>
         <Route path="/admin" element={<Admin />}></Route>
