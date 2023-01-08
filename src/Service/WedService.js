@@ -10,3 +10,8 @@ export function getWedServicesById(id) {
 export function getWedServicesByCategory(category) {
   return axios.get(`${BASE_URL}/getService?category=${category}`);
 }
+
+export function getSpacificService(id) {
+  console.log(id);
+  return axios.get(`${BASE_URL}/getServiceById?sid=${id}`);
+}

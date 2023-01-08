@@ -310,7 +310,9 @@ export function Header1({ justBool, setJustBool }) {
                             to={"/userprofile"}
                             className="nav-link active hover_line"
                           >
-                            profile
+
+                            Profile
+
                           </Link>
                         </li>
                         <li className="nav-item ml-5">
