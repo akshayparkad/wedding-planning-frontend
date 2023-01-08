@@ -19,17 +19,15 @@ import { Signup } from "./components/signup/Signup";
 import { Header1 } from "./components/home/header/Header1";
 
 function App() {
-
   const [justBool, setJustBool] = useState(false);
-  
+
   useEffect(() => {
-    
-  }, [justBool])
-  
+    console.log(justBool);
+  }, [justBool]);
 
   return (
     <BrowserRouter>
-      <Header1 justBool={justBool} />
+      <Header1 setJustBool={setJustBool} justBool={justBool} />
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/vendor" element={<Vendor />}></Route>

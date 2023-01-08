@@ -1,22 +1,22 @@
 import "./Header.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.js";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import React, { useEffect, useRef, useState } from "react";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import ListGroup from "react-bootstrap/ListGroup";
 import ListGroupItem from "react-bootstrap/esm/ListGroupItem";
-import { getSessionData } from "../../../Service/User";
+import { getDestroySession, getSessionData } from "../../../Service/User";
 
-export function Header1({ justBool }) {
+export function Header1({ justBool ,setJustBool}) {
   const [show, setShow] = useState(false);
-  const [user, setUser] = useState({type:null});
+  const [user, setUser] = useState({ type: null });
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const navigate = useNavigate();
 
+  console.log(justBool);
 
-
-  
   var getSession = async () => {
     const session = await getSessionData();
     setUser(session.data);
@@ -24,12 +24,12 @@ export function Header1({ justBool }) {
   var getSession = async () => {
     const session = await getSessionData();
     setUser(session.data);
-
-    if (user.type == "vendor" || user.type == "user") {
-      setLink("/userprofile");
-    }
   };
-
+  const destroysession = async () => {
+    const response = await getDestroySession();
+    setJustBool(!justBool);
+    navigate("/signin");
+  };
 
   useEffect(() => {
     getSession();
@@ -250,49 +250,99 @@ export function Header1({ justBool }) {
                   </div>
                 </li>
               </ul>
-              <ul className="navbar-nav mx-5 my-4 m">
-              <div>     
-            {
-                (() => {
-                    if(user.type == "user" || user.type == "vendor") {
-                            return (
+              
+                <div>
+                  {(() => {
+                    if (user.type == "admin") {
+                      return (
+                        <ul className="navbar-nav mx-5 my-4 m">
+                          <li className="nav-item ml-5">
+                            <Link
+                              to={"/admin"}
+                              className="nav-link active hover_line"
+                            >
+                              Admin
+                            </Link>
+                          </li>
+                          <li className="nav-item ml-5">
+                            <Link
+                              to={"/signin"}
+                              className="nav-link active hover_line"
+                              onClick={destroysession}
+                            >
+                              Logout
+                            </Link>
+                          </li>
+                        </ul>
+                      );
+                    } else if (user.type == "vendor") {
+                      return (
+                        <ul className="navbar-nav mx-5 my-4 m">
+                          <li className="nav-item ml-5">
+                            <Link
+                              to={"/vendor"}
+                              className="nav-link active hover_line"
+                            >
+                              Vendor
+                            </Link>
+                          </li>
+                          <li className="nav-item ml-5">
+                            <Link
+                              to={"/signin"}
+                              className="nav-link active hover_line"
+                              onClick={destroysession}
+                            >
+                              Logout
+                            </Link>
+                          </li>
+                        </ul>
+                      );
+                    } else if (user.type == "user") {
+                      return (
+                        <ul className="navbar-nav mx-5 my-4 m">
+                          <li className="nav-item ml-5">
+                            <Link
+                              to={"/userprofile"}
+                              className="nav-link active hover_line"
+                            >
+                              profile
+                            </Link>
+                          </li>
+                          <li className="nav-item ml-5">
+                            <Link
+                              to={"/signin"}
+                              className="nav-link active hover_line"
+                              onClick={destroysession}
+                            >
+                              Logout
+                            </Link>
+                          </li>
+                        </ul>
+                      );
+                    } else { 
+                      return (
+                        <ul className="navbar-nav mx-5 my-4 m">
+                          <li className="nav-item ml-5">
+                            <Link
+                              to={"/signup"}
+                              className="nav-link active hover_line"
+                            >
+                              Signup
+                            </Link>
+                          </li>
+                          <li className="nav-item ml-5">
+                            <Link
+                              to={"/signin"}
+                              className="nav-link active hover_line"
+                            >
+                              Signin
+                            </Link>
+                          </li>
+                        </ul>
 
-                              <li className="nav-item ml-5">
-                              <Link
-                                to={"/userprofile"}
-                                className="nav-link active hover_line"
-                              >
-                                Profile
-                              </Link>
-                            </li>
-                            )
-                        } else if (null) {
-                            return (
-                              <li className="nav-item ml-5">
-                              <Link
-                                to={"/signin"}
-                                className="nav-link active hover_line"
-                              >
-                                Profile
-                              </Link>
-                            </li>
-                            )
-                        }
-                })()  
-            }  
-        </div> 
-
-                <li className="nav-item ml-5">
-                  <Link to={"/signup"} className="nav-link active hover_line">
-                    Sign-up
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link to={"/signin"} className="nav-link active hover_line">
-                    Sign-in
-                  </Link>
-                </li>
-              </ul>
+                   ) }
+                  })()}
+              </div>
             </div>
           </div>
         </nav>
