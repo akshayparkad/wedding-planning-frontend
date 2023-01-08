@@ -1,13 +1,14 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './VendorsList.css'
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.js";
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 function VendorsList() {
 
     const [stylelist, setStyleList] = useState("vendors-list-18");
     const [stylecard, setStyleCard] = useState("vendor-card");
+    const params = useParams();
 
     const toggleList = () => {
         setStyleList("vendors-list-18-list");
@@ -18,6 +19,14 @@ function VendorsList() {
         setStyleList("vendors-list-18");
         setStyleCard("vendor-card");
     }
+
+    const getSpecificService = () => { 
+        
+    }
+
+    useEffect(() => { 
+      getSpecificService()
+    })
 
     return (
         <>

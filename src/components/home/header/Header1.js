@@ -13,13 +13,17 @@ export function Header1({ justBool }) {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  let user;
+  const [user, setUser] = useState();
+
+  const [link, setLink] = useState({ link: "/signin" });
 
   var getSession = async () => {
     const session = await getSessionData();
-    console.log(session);
-    user = session.data.type;
-    console.log(user);
+    setUser(session.data);
+
+    if (user.type == "vendor" || user.type == "user") {
+      setLink("/userprofile");
+    }
   };
   useEffect(() => {
     getSession();
@@ -71,7 +75,7 @@ export function Header1({ justBool }) {
                   <ul className="dropdown-menu">
                     <li>
                       <Link
-                        to={"/vendorsList"}
+                        to={"/vendorsList/mumbai"}
                         className="dropdown-item bg_drop"
                       >
                         Mumbai
@@ -82,7 +86,7 @@ export function Header1({ justBool }) {
                     </li>
                     <li>
                       <Link
-                        to={"/vendorsList"}
+                        to={"/vendorsList/pune"}
                         className="dropdown-item bg_drop"
                       >
                         Pune
@@ -91,7 +95,10 @@ export function Header1({ justBool }) {
                     <li>
                       <hr className="dropdown-divider" />
                     </li>
-                    <Link to={"/vendorsList"} className="dropdown-item bg_drop">
+                    <Link
+                      to={"/vendorsList/kolkata"}
+                      className="dropdown-item bg_drop"
+                    >
                       Kolkata
                     </Link>
                     <li>
@@ -99,7 +106,7 @@ export function Header1({ justBool }) {
                     </li>
                     <li>
                       <Link
-                        to={"/vendorsList"}
+                        to={"/vendorsList/goa"}
                         className="dropdown-item bg_drop"
                       >
                         Goa
@@ -120,10 +127,10 @@ export function Header1({ justBool }) {
                   <ul className="dropdown-menu">
                     <li className="">
                       <Link
-                        to={"/vendorsList"}
+                        to={"/vendorsList/Photoshoot"}
                         className="dropdown-item bg_drop"
                       >
-                        Photography
+                        Photoshoot
                       </Link>
                     </li>
                     <li>
@@ -131,10 +138,10 @@ export function Header1({ justBool }) {
                     </li>
                     <li>
                       <Link
-                        to={"/vendorsList"}
+                        to={"/vendorsList/Bridalwear"}
                         className="dropdown-item bg_drop"
                       >
-                        Bridal Wear
+                        Bridal wear
                       </Link>
                     </li>
                     <li>
@@ -142,7 +149,7 @@ export function Header1({ justBool }) {
                     </li>
                     <li>
                       <Link
-                        to={"/vendorsList"}
+                        to={"/vendorsList/Makeup"}
                         className="dropdown-item bg_drop"
                       >
                         Makeup
@@ -153,7 +160,7 @@ export function Header1({ justBool }) {
                     </li>
                     <li>
                       <Link
-                        to={"/vendorsList"}
+                        to={"/vendorsList/Groomwear"}
                         className="dropdown-item bg_drop"
                       >
                         Groom Wear
@@ -164,7 +171,7 @@ export function Header1({ justBool }) {
                     </li>
                     <li>
                       <Link
-                        to={"/vendorsList"}
+                        to={"/vendorsList/Catering"}
                         className="dropdown-item bg_drop"
                       >
                         Catering
@@ -175,7 +182,7 @@ export function Header1({ justBool }) {
                     </li>
                     <li>
                       <Link
-                        to={"/vendorsList"}
+                        to={"/vendorsList/Palning & decoration"}
                         className="dropdown-item bg_drop"
                       >
                         Planning and Decoration
@@ -241,12 +248,16 @@ export function Header1({ justBool }) {
               <ul className="navbar-nav mx-5 my-4 m">
                 <li className="nav-item ml-5">
                   <Link
-                    to={"/userprofile"}
+                    to={"/signup"}
                     className="nav-link active hover_line"
-                  >
+                  ></Link>
+                </li>
+                <li className="nav-item ml-5">
+                  <Link to={link} className="nav-link active hover_line">
                     Profile
                   </Link>
                 </li>
+
                 <li className="nav-item ml-5">
                   <Link to={"/signup"} className="nav-link active hover_line">
                     Sign-up

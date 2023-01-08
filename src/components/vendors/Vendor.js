@@ -117,9 +117,9 @@ function Vendor() {
               <select className="col-5 form-ak-1 " name="category">
                 <option>Photoshoot</option>
                 <hr></hr>
-                <option>Bridalwaer </option>
+                <option>Bridalwear </option>
                 <hr></hr>
-                <option>Make-up</option>
+                <option>Makeup</option>
                 <hr></hr>
                 <option>Groomwear</option>
                 <hr></hr>
