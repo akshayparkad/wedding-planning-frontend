@@ -31,3 +31,12 @@ export function getOrderByUid(uid)
 export function cancleOrder(id) { 
   return axios.delete(`${BASE_URL}/order/${id}`);
 }
+
+export function getAllUsers(type)
+{ 
+  return axios.get(`${BASE_URL}/getAllUsers?type=${type}`)
+}
+
+export function deleteBoth(uid) { 
+  return axios.delete(`${BASE_URL}/delete?uid=${uid}`);
+}
