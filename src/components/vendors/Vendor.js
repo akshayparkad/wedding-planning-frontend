@@ -7,7 +7,7 @@ import { getSessionData } from "../../Service/User";
 import { deleteWedServicesById, getWedServicesById } from "../../Service/WedService";
 import { useNavigate } from "react-router-dom";
 
-function Vendor() {
+function Vendor({justBool}) {
   const[sdata, setSdata] = useState();
   const[user, setUser] = useState({uid:null});
   const[serviceData, setServiceData] = useState([]);
@@ -31,7 +31,7 @@ function Vendor() {
   const handleSubmit = (event) => {
       event.preventDefault();
       postServiceData();
-      setBool(true);
+      setBool(!bool);
   }
 
   //get session and service data
@@ -45,14 +45,14 @@ function Vendor() {
   useEffect( () => {
     getSession();
  
-  },[bool]);
+  },[bool,justBool]);
 
 
   //delete service
 
   const handleDelete = async(id) =>{
     const response = await deleteWedServicesById(id);
-    setBool(true);
+    setBool(!bool);
   }
 
 
@@ -206,7 +206,7 @@ function Vendor() {
                 <hr></hr>
                 <option>Photoshoot</option>
                 <hr></hr>
-                <option>Bridalwear </option>
+                <option>Bridalwear</option>
                 <hr></hr>
                 <option>Makeup</option>
                 <hr></hr>
@@ -214,7 +214,7 @@ function Vendor() {
                 <hr></hr>
                 <option>Catering</option>
                 <hr></hr>
-                <option>Palning & decoration</option>
+                <option>Decoration</option>
                 <hr></hr>
                 <option>Vanue</option>
                 <hr></hr>

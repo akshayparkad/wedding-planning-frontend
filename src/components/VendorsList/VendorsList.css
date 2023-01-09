@@ -62,11 +62,12 @@
   .vendor-card-image {
     flex: 1;
   }
-  
-  .vendor-card-image img {
+
+  .vendor-card-image img{
     width: 100%;
-    height: 100%;
+    height: 220px;
   }
+
   
   .vendor-card-info {
     flex: 2;

@@ -3,7 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { getWedServicesByServiceId } from '../../Service/WedService';
 import { postWedServiceDetails } from '../API/Services';
 
-function UpdateService() {
+function UpdateService({setJustBool, justBool}) {
 
     const [serviceData, setServiceData] = useState({ location: "" });
     const [sdata, setSdata] = useState({
@@ -29,6 +29,7 @@ function UpdateService() {
     //post updated data
     const postServiceData = async () => {
         // sdata.uid = document.getElementById('myid').value;
+        sdata.vendorname = serviceData.vendorname;
         const response = await postWedServiceDetails(sdata);
         console.log(response);
     }
@@ -66,10 +67,12 @@ function UpdateService() {
     sdata.content = document.getElementById('content').value;
 
 
-        postServiceData();
-
+    postServiceData();
+    
+    setJustBool(!justBool)
     navigate('/vendor')
     }
+
 
     console.log(sdata);
 

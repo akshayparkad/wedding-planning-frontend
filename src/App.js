@@ -37,7 +37,7 @@ function App() {
         <Route path="/vendorsList/:city/:mycity" element={<VendorsList />}></Route>
 
         <Route path="/serviceDetail/:sid" element={<ServiceDetail />}></Route>
-        <Route path="/userprofile" element={<UserProfile />}></Route>
+        <Route path="/userprofile" element={<UserProfile justBool={justBool}/>}></Route>
         <Route path="/about" element={<About />}></Route>
         <Route path="/admin" element={<Admin />}></Route>
         <Route path="/userprofileedit" element={<UserProfileEdit />}></Route>
@@ -47,7 +47,7 @@ function App() {
           element={<Login setJustBool={setJustBool} justBool={justBool} />}
         ></Route>
         <Route path="/signup" element={<Signup />}></Route>
-        <Route path="/updateservice/:id/:uid" element={<UpdateService />}></Route>
+        <Route path="/updateservice/:id/:uid"  element={<UpdateService setJustBool={setJustBool} justBool={justBool}/>}></Route>
       </Routes>
       <Footer></Footer>
     </BrowserRouter>

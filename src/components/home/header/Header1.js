@@ -193,10 +193,10 @@ export function Header1({ justBool, setJustBool }) {
                     </li>
                     <li>
                       <Link
-                        to={"/vendorsList/Palning & decoration"}
+                        to={"/vendorsList/decoration"}
                         className="dropdown-item bg_drop"
                       >
-                        Planning and Decoration
+                       Decoration
                       </Link>
                     </li>
                   </ul>

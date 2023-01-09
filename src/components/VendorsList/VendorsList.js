@@ -22,17 +22,17 @@ function VendorsList() {
   };
 
   const getSpecificService = async () => {
-    if(params.city == "city"){
+    if (params.city == "city") {
 
       const res = await getWedServicesByLocation(params.mycity);
       console.log(res);
       setService(res.data);
-    }else{
+    } else {
 
-    const response = await getWedServicesByCategory(params.service);
-    console.log(response);
-    setService(response.data);
-   }
+      const response = await getWedServicesByCategory(params.service);
+      console.log(response);
+      setService(response.data);
+    }
   };
 
   useEffect(() => {
@@ -46,7 +46,11 @@ function VendorsList() {
       <div className="container mt-3">
         <div className="row bg-light mx-1 navbar-vendorlist">
           <div className="col-7 mt-1">
-            <a class="navbar-brand">Wedding Photogtaphers</a>
+            {service.map(item => {
+              return (
+                <a class="navbar-brand">{item.category}</a>
+              )}
+          )}
           </div>
 
           <div
@@ -87,7 +91,7 @@ function VendorsList() {
 
                 <div class="vendor-card-info">
                   <h3 class="vendor-card-name">
-                    <Link to={ `/serviceDetail/${ele.sid}`} className="text-link">
+                    <Link to={`/serviceDetail/${ele.sid}`} className="text-link">
                       {ele.vendorname}
                     </Link>
                   </h3>
