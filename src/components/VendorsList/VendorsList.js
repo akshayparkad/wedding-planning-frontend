@@ -46,11 +46,8 @@ function VendorsList() {
       <div className="container mt-3">
         <div className="row bg-light mx-1 navbar-vendorlist">
           <div className="col-7 mt-1">
-            {service.map(item => {
-              return (
-                <a class="navbar-brand">{item.category}</a>
-              )}
-          )}
+                <a class="navbar-brand">Categories</a>
+        
           </div>
 
           <div
