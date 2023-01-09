@@ -53,11 +53,11 @@ export default function ServiceDetail() {
               <h5 className="text-secondary">Per Day Price Estimate</h5>
             </div>
             <div className="border-ak-1 ">
-              <span className="color-ak-1 fs-4">{service.price1} per day</span>
+              <span className="color-ak-1 fs-4">{service.price1} </span>
               <span>{service.purpose1}</span>
             </div>
             <div>
-              <span className="color-ak-1 fs-4">{service.price2}per day</span>
+              <span className="color-ak-1 fs-4">{service.price2}</span>
               <span>{service.purpose2}</span>
             </div>
           </div>
