@@ -7,7 +7,7 @@ function UserProfileEdit() {
   let param = useParams();
   const [user, setUser] = useState({ username: "", email: "", location: "" });
   const [updatedUser, setUpdateUser] = useState({uid:"", password: "", type:"", username: "", email: "", location: "", confirmPassword: ""});
-  // const [bool, setBool] = useState(false);
+  const [bool, setBool] = useState(false);
 
   let navigate = useNavigate();
 
@@ -19,12 +19,13 @@ function UserProfileEdit() {
 
   useEffect(() => {
     getuserData();
-  }, []);
+  }, [bool]);
 
 
   //update user data
   const updateUserData = async () => {
     var response = await userData(updatedUser);
+    setBool(!bool)
     navigate(`/userprofile`);
   }
 
