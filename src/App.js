@@ -2,22 +2,15 @@ import React, { useEffect, useState } from "react";
 import "./App.css";
 import "./components/home/Home.css";
 import "./components/home/footer/Footer.css";
-import { BrowserRouter, Route, Routes, useParams } from "react-router-dom";
-import Vendor from "./components/vendors/Vendor";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./components/home/Home";
 import { Footer } from "./components/home/footer/Footer";
-import Admin from "./components/Admin/AdminDashBoard/Admin";
-import ServiceDetail from "./components/Service-detail/ServiceDetail";
-import VendorsList from "./components/VendorsList/VendorsList";
-
-import UserProfile from "./components/Profile/UserProfile";
-import UserProfileEdit from "./components/Profile/UserProfileEdit";
-import ChangePassword from "./components/Profile/ChangePassword";
 import { About } from "./components/About/About";
 import Login from "./components/login/Login";
 import { Signup } from "./components/signup/Signup";
 import { Header1 } from "./components/home/header/Header1";
-import UpdateService from "./components/vendors/UpdateService";
+import VendorList from "./components/VendorList/VendorList";
+import ContactUs from "./components/Contact/ContactUs";
 
 function App() {
   const [justBool, setJustBool] = useState(false);
@@ -31,23 +24,17 @@ function App() {
       <Header1 setJustBool={setJustBool} justBool={justBool} />
       <Routes>
         <Route path="/" element={<Home />}></Route>
-        <Route path="/vendor" element={<Vendor />}></Route>
-
-        <Route path="/vendorsList/:service" element={<VendorsList />}></Route>
-        <Route path="/vendorsList/:city/:mycity" element={<VendorsList />}></Route>
-
-        <Route path="/serviceDetail/:sid" element={<ServiceDetail />}></Route>
-        <Route path="/userprofile" element={<UserProfile justBool={justBool}/>}></Route>
+        <Route path="/venue-list" element={<VendorList/>}></Route>
         <Route path="/about" element={<About />}></Route>
-        <Route path="/admin" element={<Admin />}></Route>
-        <Route path="/userprofileedit" element={<UserProfileEdit />}></Route>
-        <Route path="/changepassword" element={<ChangePassword />}></Route>
+        <Route path="/contact" element={<ContactUs />}></Route>
+
+      
         <Route
           path="/signin"
           element={<Login setJustBool={setJustBool} justBool={justBool} />}
         ></Route>
+
         <Route path="/signup" element={<Signup />}></Route>
-        <Route path="/updateservice/:id/:uid"  element={<UpdateService setJustBool={setJustBool} justBool={justBool}/>}></Route>
       </Routes>
       <Footer></Footer>
     </BrowserRouter>

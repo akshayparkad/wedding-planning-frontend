@@ -2,7 +2,7 @@ import "./Header.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.js";
 import { Link, useNavigate } from "react-router-dom";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import ListGroup from "react-bootstrap/ListGroup";
 import ListGroupItem from "react-bootstrap/esm/ListGroupItem";
@@ -73,143 +73,21 @@ export function Header1({ justBool, setJustBool }) {
                     Home
                   </Link>
                 </li>
-                <li className="nav-item dropdown ">
-                  <a
-                    className="nav-link dropdown-toggle active hover_line"
-                    href=""
-                    role="button"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                  >
-                    Venue
-                  </a>
-                  <ul className="dropdown-menu">
-                    <li>
-                      <Link
-                        to={"/vendorsList/city/mumbai"}
-                        className="dropdown-item bg_drop"
-                      >
-                        Mumbai
-                      </Link>
-                    </li>
-                    <li>
-                      <hr className="dropdown-divider" />
-                    </li>
-                    <li>
-                      <Link
-                        to={"/vendorsList/city/pune"}
-                        className="dropdown-item bg_drop"
-                      >
-                        Pune
-                      </Link>
-                    </li>
-                    <li>
-                      <hr className="dropdown-divider" />
-                    </li>
-                    <Link
-                      to={"/vendorsList/city/kolkata"}
-                      className="dropdown-item bg_drop"
-                    >
-                      Kolkata
-                    </Link>
-                    <li>
-                      <hr className="dropdown-divider" />
-                    </li>
-                    <li>
-                      <Link
-                        to={"/vendorsList/city/goa"}
-                        className="dropdown-item bg_drop"
-                      >
-                        Goa
-                      </Link>
-                    </li>
-                  </ul>
+                <li className="nav-item ">
+                  <Link to={"/venue-list"} className="nav-link active hover_line">
+                     Venue List
+                  </Link>
                 </li>
-                <li className="nav-item dropdown">
-                  <a
-                    className="nav-link dropdown-toggle active hover_line"
-                    href="#"
-                    role="button"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                  >
-                    Service
-                  </a>
-                  <ul className="dropdown-menu">
-                    <li className="">
-                      <Link
-                        to={"/vendorsList/Photoshoot"}
-                        className="dropdown-item bg_drop"
-                      >
-                        Photoshoot
-                      </Link>
-                    </li>
-                    <li>
-                      <hr className="dropdown-divider bg_drop" />
-                    </li>
-                    <li>
-                      <Link
-                        to={"/vendorsList/Bridalwear"}
-                        className="dropdown-item bg_drop"
-                      >
-                        Bridal wear
-                      </Link>
-                    </li>
-                    <li>
-                      <hr className="dropdown-divider bg_drop" />
-                    </li>
-                    <li>
-                      <Link
-                        to={"/vendorsList/Makeup"}
-                        className="dropdown-item bg_drop"
-                      >
-                        Makeup
-                      </Link>
-                    </li>
-                    <li>
-                      <hr className="dropdown-divider bg_drop" />
-                    </li>
-                    <li>
-                      <Link
-                        to={"/vendorsList/Groomwear"}
-                        className="dropdown-item bg_drop"
-                      >
-                        Groom Wear
-                      </Link>
-                    </li>
-                    <li>
-                      <hr className="dropdown-divider bg_drop" />
-                    </li>
-                    <li>
-                      <Link
-                        to={"/vendorsList/Catering"}
-                        className="dropdown-item bg_drop"
-                      >
-                        Catering
-                      </Link>
-                    </li>
-                    <li>
-                      <hr className="dropdown-divider bg_drop" />
-                    </li>
-                    <li>
-                      <Link
-                        to={"/vendorsList/decoration"}
-                        className="dropdown-item bg_drop"
-                      >
-                       Decoration
-                      </Link>
-                    </li>
-                  </ul>
-                </li>
+               
                 <li className="nav-item ">
                   <Link to={"/about"} className="nav-link active hover_line">
                     About us
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link
+                  <Link to={"/contact"}
                     className="nav-link active hover_line"
-                    onClick={handleShow}
+                    
                   >
                     Contact us
                   </Link>

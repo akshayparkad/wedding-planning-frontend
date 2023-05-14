@@ -19,24 +19,6 @@ export function getDestroySession() {
   return axios.get(`${BASE_URL}/destroysession`);
 }
 
-export function addOrder(order) { 
-  return axios.post(`${BASE_URL}/addOrder`,order)
-}
-
-export function getOrderByUid(uid)
-{ 
-  return axios.get(`${BASE_URL}/order/${uid}`)
-}
-
-export function cancleOrder(id) { 
-  return axios.delete(`${BASE_URL}/order/${id}`);
-}
-
-export function getAllUsers(type)
-{ 
-  return axios.get(`${BASE_URL}/getAllUsers?type=${type}`)
-}
-
-export function deleteBoth(uid) { 
-  return axios.delete(`${BASE_URL}/delete?uid=${uid}`);
+export function postContactUs(data){
+  return axios.post(`${BASE_URL}/addContact`, data)
 }
