@@ -33,6 +33,7 @@ function ChangePassword() {
     let password = document.getElementById('password').value;
     let confirmPassword = document.getElementById('confirmpassword').value;
 
+
     if(password == confirmPassword) {
     updatedUser.uid = user.uid;
     updatedUser.type = user.type;
